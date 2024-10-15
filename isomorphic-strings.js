@@ -83,6 +83,6 @@ function isomorphicStrings(s, t) {
 }
 
 
-console.log(isomorphicStrings("egg", "add"))
-console.log(isomorphicStrings("foo", "bar"))
-console.log(isomorphicStrings("paper", "title"))
+console.log(isomorphicStrings("egg", "add"));
+console.log(isomorphicStrings("foo", "bar"));
+console.log(isomorphicStrings("paper", "title"));

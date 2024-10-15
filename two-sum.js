@@ -62,9 +62,9 @@ function twoSum(nums, target) {
     }
   }
 
-  return false;
+  return null;
 }
 
-console.log(twoSum([3, 4, 5, 6], 7));
-console.log(twoSum([4, 5, 6], 10));
-console.log(twoSum([5, 5], 10))
+console.log(twoSum([3, 4, 5, 6], 7));  // output: [0, 1]
+console.log(twoSum([4, 5, 6], 10));  // output: [0, 2]
+console.log(twoSum([5, 5], 10))  // output: [0, 1]

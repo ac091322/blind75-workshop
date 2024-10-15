@@ -65,6 +65,6 @@ def two_sum(list_of_nums, target):
     return None
 
 
-print(two_sum([3, 4, 5, 6], 7))
-print(two_sum([4, 5, 6], 10))
-print(two_sum([5, 5], 10))
+print(two_sum([3, 4, 5, 6], 7))  # ouput: [0, 1]
+print(two_sum([4, 5, 6], 10))  # output: [0, 2]
+print(two_sum([5, 5], 10))  # output: [0, 1]
