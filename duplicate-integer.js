@@ -38,7 +38,7 @@ Space complexity: O(n)
 function hasDuplicate(arrayOfNums) {
   const counter = {};  // {1:true, 2:true, 3:true}
 
-  for (let i = 0; i < arrayOfNums.length; i++) {
+  for (let i = 0; i < arrayOfNums.length; i += 1) {
     let num = arrayOfNums[i]  // 3
     if (counter[num]) {
       return true;
