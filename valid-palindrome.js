@@ -26,5 +26,26 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 Constraints:
 1 <= s.length <= 2 * 105
-s consists only of printable ASCII characters.
+s consists only of console.logablPASCII characters.
 */
+
+
+function isPalindrome(s) {
+  let filteredS = "";
+
+  for (let char of s) {
+    if ((char >= "a" && char <= "z") ||
+      (char >= "A" && char <= "Z") ||
+      (char >= "0" && char <= "9")) {
+      filteredS += char.toLowerCase();
+    }
+  }
+
+  const reversedS = filteredS.split("").reverse().join("");
+  return filteredS === reversedS;
+}
+
+
+console.log(isPalindrome("A man, a plan, a canal: Panama"))  // output: true
+console.log(isPalindrome("race a car"))  // output: false
+console.log(isPalindrome(" "))  // output: true

@@ -68,7 +68,7 @@ Space complexity: O(1)
 
 
 def two_sum(nums, target):
-    [left_index, right_index] = [0, len(nums) - 1]
+    left_index, right_index = 0, len(nums) - 1
 
     while left_index < right_index:
         sum = nums[left_index] + nums[right_index]
