@@ -12,6 +12,7 @@ Find two lines that together with the x-axis form a container, such that the con
 Return the maximum amount of water a container can store.
 
 Notice that you may not slant the container.
+--> see image
 
 Example 1:
 Input: height = [1,8,6,2,5,4,8,3,7]
@@ -21,7 +22,6 @@ Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,
 Example 2:
 Input: height = [1,1]
 Output: 1
-
 
 Example 3:
 input: height = [2,3,2]
@@ -74,7 +74,7 @@ L       R   --> (4 - 0) * 1 = 4
 1. create left/right pointers at opposite ends of the input array
 2. set a variable to keep track of max area seen so far
 3. iterate until pointers cross
-  3.1. take the minimum of left and right heights
+  3.1. set left and right heights and take the minimum of left and right heights
   3.2. multiple the minimum by the distance or width of the container measured by the distance between the pointers (right pointer - left pointer)
   3.3. compare current area with max seen and update the max seen if needed
   3.4. increment or decrement the left or right pointer based on whichever one is lower
@@ -87,21 +87,21 @@ Space complexity: O(1)
 
 
 function maxArea(heights) {
-  let left = 0;
-  let right = heights.length - 1;
+  let leftIdx = 0;
+  let rightIdx = heights.length - 1;
   let maxArea = -Infinity;
 
   while (left < right) {
-    let leftHeight = heights[left];
-    let rightHeight = heights[right];
-    let containerWidth = right - left;
+    let leftHeight = heights[leftIdx];
+    let rightHeight = heights[rightIdx];
+    let containerWidth = rightIdx - leftIdx;
     let area = containerWidth * Math.min(leftHeight, rightHeight);
     maxArea = Math.max(maxArea, area);
 
     if (leftHeight < rightHeight) {
-      left += 1;
+      leftIdx += 1;
     } else {
-      right -= 1;
+      rightIdx -= 1;
     }
   }
 

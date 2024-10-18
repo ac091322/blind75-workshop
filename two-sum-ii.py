@@ -67,12 +67,24 @@ Space complexity: O(1)
 """
 
 
-def twoSum(nums, target):
-    pass
+def two_sum(nums, target):
+    [left_index, right_index] = [0, len(nums) - 1]
+
+    while left_index < right_index:
+        sum = nums[left_index] + nums[right_index]
+
+        if sum == target:
+            return [left_index + 1, right_index + 1]
+        if sum < target:
+            left_index += 1
+        if sum > target:
+            right_index -= 1
+
+    return None
 
 
-print(twoSum([2, 7, 11, 15], 9))  # output: [1, 2]
-print(twoSum([2, 3, 4], 6))  # output: [1, 3]
-print(twoSum([-1, 0], -1))  # output: [1, 2]
-print(twoSum([1, 2, 3, 4, 5, 6, 7, 8, 9], 17))  # output: [8, 9]
-print(twoSum([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))  # output: [1, 2]
+print(two_sum([2, 7, 11, 15], 9))  # output: [1, 2]
+print(two_sum([2, 3, 4], 6))  # output: [1, 3]
+print(two_sum([-1, 0], -1))  # output: [1, 2]
+print(two_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 17))  # output: [8, 9]
+print(two_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))  # output: [1, 2]

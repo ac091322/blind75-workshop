@@ -34,10 +34,10 @@ Constraints:
 """
 
 
-def threeSum(nums):
+def three_sum(nums):
     pass
 
 
-print(threeSum([-1, 0, 1, 2, -1, -4]))  # output: [[-1,-1,2],[-1,0,1]]
-print(threeSum([0, 1, 1]))  # output: []
-print(threeSum([0, 0, 0]))  # output: [[0,0,0]]
+print(three_sum([-1, 0, 1, 2, -1, -4]))  # output: [[-1,-1,2],[-1,0,1]]
+print(three_sum([0, 1, 1]))  # output: []
+print(three_sum([0, 0, 0]))  # output: [[0,0,0]]

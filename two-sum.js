@@ -48,7 +48,7 @@ Space complexity: O(n)
 */
 
 
-function twoSum(nums, target) {
+function two_sum(nums, target) {
   const indexes = {}
 
   for (let i = 0; i < nums.length; i += 1) {
@@ -65,6 +65,7 @@ function twoSum(nums, target) {
   return null;
 }
 
-console.log(twoSum([3, 4, 5, 6], 7));  // output: [0, 1]
-console.log(twoSum([4, 5, 6], 10));  // output: [0, 2]
-console.log(twoSum([5, 5], 10))  // output: [0, 1]
+
+console.log(two_sum([3, 4, 5, 6], 7));  // output: [0, 1]
+console.log(two_sum([4, 5, 6], 10));  // output: [0, 2]
+console.log(two_sum([5, 5], 10))  // output: [0, 1]

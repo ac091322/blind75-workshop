@@ -67,17 +67,19 @@ Space complexity: O(1)
 */
 
 
-
 function twoSum(nums, target) {
-  let [left, right] = [0, nums.length - 1];
-  while (left < right) {
-    let sum = nums[left] + nums[right];
-    if (sum === target) return [left + 1, right + 1];
-    if (sum < target) left += 1
-    if (sum > target) right -= 1
+  let [leftIdx, rightIndx] = [0, nums.length - 1];
+
+  while (leftIdx < rightIndx) {
+    let sum = nums[leftIdx] + nums[rightIndx];
+    if (sum === target) return [leftIdx + 1, rightIndx + 1];
+    if (sum < target) leftIdx += 1
+    if (sum > target) rightIndx -= 1
   }
+
   return [-1, -1];
 }
+
 
 console.log(twoSum([2, 7, 11, 15], 9));  // output: [1, 2]
 console.log(twoSum([2, 3, 4], 6));  // output: [1, 3]

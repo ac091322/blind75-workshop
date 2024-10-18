@@ -35,7 +35,7 @@ Space complexity: O(n)
 """
 
 
-def hasDuplicate(list_of_nums):
+def has_duplicate(list_of_nums):
     counter = {}
 
     for num in list_of_nums:
@@ -47,4 +47,4 @@ def hasDuplicate(list_of_nums):
     return False
 
 
-print(hasDuplicate([1, 2, 3, 3]))
+print(has_duplicate([1, 2, 3, 3]))
