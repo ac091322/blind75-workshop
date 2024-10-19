@@ -1,4 +1,4 @@
-/*
+"""
 https://leetcode.com/problems/product-of-array-except-self/
 https://neetcode.io/problems/products-of-array-discluding-self
 
@@ -47,36 +47,31 @@ Time complexity: O(n)
 Space complexity: O(n)
 
 Challenge: solve in O(1) time
-*/
+"""
 
 
-function productOfArray(nums) {
-  const prefix = new Array(nums.length).fill(1);
-  const suffix = new Array(nums.length).fill(1);
-  const result = [];
+def product_of_array(nums):
+    prefix = [1] * len(nums)
+    suffix = [1] * len(nums)
+    result = [1] * len(nums)
 
-  for (let i = 1; i < nums.length; i += 1) {
-    let prev = prefix[i - 1]
-    let curNum = nums[i - 1];
-    prefix[i] = curNum * prev;
-  }
+    # compute prefix products
+    for i in range(1, len(nums), 1):  # start at 1 because prefix[0] is always 1
+        prefix[i] = prefix[i - 1] * nums[i - 1]
+        # prefix becomes [1, 1, 2, 8]
 
-  for (let i = nums.length - 2; i >= 0; i -= 1) {
-    let next = suffix[i + 1];
-    let curNum = nums[i + 1];
-    suffix[i] = curNum * next;
-  }
+    # compute suffix products
+    for i in range(len(nums) - 2, -1, -1):  # start at len(nums)-2 because suffix[len(nums)-1] is always 1
+        suffix[i] = suffix[i + 1] * nums[i + 1]
+        # suffix becomes [48, 24, 6, 1]
 
-  for (let i = 0; i < nums.length; i += 1) {
-    let prev = prefix[i];
-    let next = suffix[i];
-    result[i] = prev * next;
-  }
+    # compute result by multiplying prefix and suffix products
+    for i in range(0, len(nums), 1):
+        result[i] = prefix[i] * suffix[i]
 
-  return result;
-}
+    return result
 
 
-console.log(productOfArray([1, 2, 4, 6]));  // output: [48,24,12,8]
-console.log(productOfArray([-1, 1, 0, -3, 3]));  // output: [0,0,9,0,0]
-console.log(productOfArray([1, 2, 3, 4]));  // output: [24,12,8,6]
+print(product_of_array([1, 2, 4, 6]))  # output: [48,24,12,8]
+print(product_of_array([-1, 1, 0, -3, 3]))  # output: [0,0,9,0,0]
+print(product_of_array([1, 2, 3, 4]))  # output: [24,12,8,6]
