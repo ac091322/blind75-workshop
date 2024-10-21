@@ -68,9 +68,7 @@ function productOfArray(nums) {
   }
 
   for (let i = 0; i < nums.length; i += 1) {
-    let prev = prefix[i];
-    let next = suffix[i];
-    result[i] = prev * next;
+    result[i] = prefix[i] * suffix[i]
   }
 
   return result;
