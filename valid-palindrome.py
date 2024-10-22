@@ -28,23 +28,29 @@ Space complexity: O(1)
 """
 
 
-def is_palindrome(s):
-    left_index, right_index = 0, len(s) - 1
+class Solution:
+    def is_palindrome(self, s):
+        left_index, right_index = 0, len(s) - 1
 
-    while left_index < right_index:
+        while left_index < right_index:
 
-        while left_index < right_index and not s[left_index].isalnum():
-            left_index += 1
+            while left_index < right_index and not s[left_index].isalnum():
+                left_index += 1
 
-        while left_index < right_index and not s[right_index].isalnum():
-            right_index -= 1
+            while left_index < right_index and not self.is_alpha_numeric(
+                s[right_index]
+            ):
+                right_index -= 1
 
-        if s[left_index].lower() != s[right_index].lower():
-            return False
+            if s[left_index].lower() != s[right_index].lower():
+                return False
 
-        left_index, right_index = left_index + 1, right_index - 1
+            left_index, right_index = left_index + 1, right_index - 1
 
-    return True
+        return True
+
+    def is_alpha_numeric(self, char):
+        return "a" <= char <= "z" or "A" <= char <= "Z" or "0" <= char <= "9"
 
 
 """
@@ -52,8 +58,10 @@ Time complexity: O(n)
 Space complexity: O(n)
 """
 
+
 # def is_palindrome(s):
 #     filtered_s = "".join(char.lower() for char in s if char.isalnum())
+#     print(filtered_s)
 #     return filtered_s == filtered_s[::-1]
 
 
@@ -76,8 +84,8 @@ Space complexity: O(n)
 
 #     return filtered_S == filtered_S[::-1]
 
-
-print(is_palindrome("A man, a plan, a canal: Panama"))  # output: True
-print(is_palindrome("race a car"))  # output: False
-print(is_palindrome(" "))  # output: True
-print(is_palindrome("0P"))  # output: False
+solution = Solution()
+print(solution.is_palindrome("A man, a plan, a canal: Panama"))  # output: True
+print(solution.is_palindrome("race a car"))  # output: False
+print(solution.is_palindrome(" "))  # output: True
+print(solution.is_palindrome("0P"))  # output: False

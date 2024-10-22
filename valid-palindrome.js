@@ -48,6 +48,12 @@ function isPalindrome(s) {
   return filteredS === reversedS;
 }
 
+function isAlphaNumeric(char) {
+  return "a" <= char && char <= "z" ||
+    "A" <= char && char <= "Z" ||
+    "0" <= char && char <= "9"
+}
+
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"))  // output: true
 console.log(isPalindrome("race a car"))  // output: false
