@@ -22,10 +22,13 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 Constraints:
 1 <= s.length <= 2 * 105
 s consists only of printable ASCII characters.
+
+Time complexity: O(n)
+Space complexity: O(1)
 """
 
 
-def is_palinedrome(s):
+def is_palindrome(s):
     left_index, right_index = 0, len(s) - 1
 
     while left_index < right_index:
@@ -39,17 +42,42 @@ def is_palinedrome(s):
         if s[left_index].lower() != s[right_index].lower():
             return False
 
-        left_index += 1
-        right_index -= 1
+        left_index, right_index = left_index + 1, right_index - 1
 
     return True
 
 
-# def is_palinedrome(s):
+"""
+Time complexity: O(n)
+Space complexity: O(n)
+"""
+
+# def is_palindrome(s):
 #     filtered_s = "".join(char.lower() for char in s if char.isalnum())
 #     return filtered_s == filtered_s[::-1]
 
 
-print(is_palinedrome("A man, a plan, a canal: Panama"))  # output: True
-print(is_palinedrome("race a car"))  # output: False
-print(is_palinedrome(" "))  # output: True
+"""
+Time complexity: O(n^2)
+Space complexity: O(n)
+"""
+
+
+# def is_palindrome(s):
+#     filtered_S = ""
+
+#     for char in s:
+#         if (
+#             ord("a") <= ord(char) <= ord("z")
+#             or ord("A") <= ord(char) <= ord("Z")
+#             or ord("0") <= ord(char) <= ord("9")
+#         ):
+#             filtered_S += char.lower()
+
+#     return filtered_S == filtered_S[::-1]
+
+
+print(is_palindrome("A man, a plan, a canal: Panama"))  # output: True
+print(is_palindrome("race a car"))  # output: False
+print(is_palindrome(" "))  # output: True
+print(is_palindrome("0P"))  # output: False

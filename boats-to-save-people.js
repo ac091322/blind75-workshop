@@ -27,6 +27,9 @@ Explanation: 4 boats (3), (3), (4), (5)
 Constraints:
 1 <= people.length <= 5 * 104
 1 <= people[i] <= limit <= 3 * 104
+
+Time complexity: O(n log n)
+Space complexity: O(1)
 */
 
 
