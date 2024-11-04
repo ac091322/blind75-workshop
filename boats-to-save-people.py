@@ -40,6 +40,7 @@ def boats_to_save_people(people, limit):
     boats = 0
 
     while left_index <= right_index:
+        # if this conditional triggers, then both left and right get off and boats go up by 1
         if people[left_index] + people[right_index] <= limit:
             left_index += 1
 

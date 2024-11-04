@@ -41,33 +41,34 @@ def three_sum(nums):
     result = []
     nums.sort()
 
-    for i, a in enumerate(nums):
-        if a > 0:
+    for i, num in enumerate(nums):
+        # check for positive numbers in a sorted list, if the first number is positive, no triplets can sum to 0
+        if num > 0:
             break
 
-        if i > 0 and a == nums[i - 1]:
+        # check if the current number is the same as the previous number
+        if i > 0 and num == nums[i - 1]:
             continue
 
-        l, r = i + 1, len(nums) - 1
+        left, right = i + 1, len(nums) - 1
 
-        while l < r:
-            threeSum = a + nums[l] + nums[r]
-
-            if threeSum > 0:
-                r -= 1
-            elif threeSum < 0:
-                l += 1
+        while left < right:
+            three_sum = num + nums[left] + nums[right]
+            if three_sum > 0:
+                right -= 1
+            elif three_sum < 0:
+                left += 1
             else:
-                result.append([a, nums[l], nums[r]])
-                l += 1
-                r -= 1
-
-                while nums[l] == nums[l - 1] and l < r:
-                    l += 1
+                result.append([num, nums[left], nums[right]])
+                left += 1
+                right -= 1
+                while nums[left] == nums[left - 1] and left < right:
+                    left += 1
 
     return result
 
 
 print(three_sum([-1, 0, 1, 2, -1, -4]))  # output: [[-1,-1,2],[-1,0,1]]
-print(three_sum([0, 1, 1]))  # output: []
-print(three_sum([0, 0, 0]))  # output: [[0,0,0]]
+# print(three_sum([0, 1, 1]))  # output: []
+# print(three_sum([0, 0, 0]))  # output: [[0,0,0]]
+# print(three_sum([4, 5, 6]))  # output: []
