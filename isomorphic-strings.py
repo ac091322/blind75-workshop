@@ -48,7 +48,7 @@ Space complexity: 0(n)
 """
 
 
-def isomorphic_strings(s, t):
+def is_isomorphic(s, t):
     if len(s) != len(t):
         return False
 
@@ -74,6 +74,21 @@ def isomorphic_strings(s, t):
     return True
 
 
-print(isomorphic_strings("egg", "add"))  # output: True
-print(isomorphic_strings("foo", "bar"))  # output: False
-print(isomorphic_strings("paper", "title"))  # output: True
+# def is_isomorphic(s, t):
+#     x = {}
+
+#     for i in range(len(s)):
+#         if s[i] in x:
+#             if x[s[i]] != t[i]:
+#                 return False
+#         elif t.index(t[i]) < i:
+#             return False
+#         else:
+#             x[s[i]] = t[i]
+
+#     return True
+
+
+print(is_isomorphic("egg", "add"))  # output: True
+print(is_isomorphic("foo", "bar"))  # output: False
+print(is_isomorphic("paper", "title"))  # output: True

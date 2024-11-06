@@ -35,6 +35,7 @@ Space complexity: O(n)
 
 function isPalindrome(s) {
   let filteredS = "";
+  // let filteredS = [];
 
   for (let char of s) {
     if ((char >= "a" && char <= "z") ||
@@ -46,13 +47,14 @@ function isPalindrome(s) {
 
   const reversedS = filteredS.split("").reverse().join("");
   return filteredS === reversedS;
+  // return filteredS.join("") === filteredS.reverse().join("");
 }
 
-function isAlphaNumeric(char) {
-  return "a" <= char && char <= "z" ||
-    "A" <= char && char <= "Z" ||
-    "0" <= char && char <= "9"
-}
+// function isAlphaNumeric(char) {
+//   return "a" <= char && char <= "z" ||
+//     "A" <= char && char <= "Z" ||
+//     "0" <= char && char <= "9"
+// }
 
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"))  // output: true

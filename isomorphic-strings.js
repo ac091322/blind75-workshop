@@ -48,37 +48,49 @@ Space complexity: 0(n)
 */
 
 
-function isomorphicStrings(s, t) {
-  if (s.length !== t.length) return false
+// function isIsomorphic(s, t) {
+//   if (s.length !== t.length) return false
 
-  const mapStoT = {}
-  const mapTtoS = {}
+//   const mapStoT = {}
+//   const mapTtoS = {}
 
-  for (let i = 0; i < s.length; i += 1) {
-    let charS = s[i]
-    let charT = t[i]
+//   for (let i = 0; i < s.length; i += 1) {
+//     let charS = s[i]
+//     let charT = t[i]
 
-    if (charS in mapStoT) {
-      if (mapStoT[charS] !== charT) {
-        return false
-      }
-    } else {
-      mapStoT[charS] = charT  // first iteration: {e: a}
-    }
+//     if (charS in mapStoT) {
+//       if (mapStoT[charS] !== charT) {
+//         return false
+//       }
+//     } else {
+//       mapStoT[charS] = charT  // first iteration: {e: a}
+//     }
 
-    if (charT in mapTtoS) {
-      if (mapTtoS[charT] !== charS) {
-        return false
-      }
-    } else {
-      mapTtoS[charT] = charS  // first iteration: {a: e}
-    }
+//     if (charT in mapTtoS) {
+//       if (mapTtoS[charT] !== charS) {
+//         return false
+//       }
+//     } else {
+//       mapTtoS[charT] = charS  // first iteration: {a: e}
+//     }
+//   }
+
+//   return true
+// }
+
+function isIsomorphic(s, t) {
+  const x = new Map()
+
+  for (let i = 0; i < s.length; i++) {
+    if (x.get(s[i]) == t[i]) continue;
+    if (x.has(s[i]) && x.get(s[i]) != t[i] || t.indexOf(t[i]) < i) return false
+    x.set(s[i], t[i])
   }
 
-  return true
-}
+  return true;
+};
 
 
-console.log(isomorphicStrings("egg", "add"));
-console.log(isomorphicStrings("foo", "bar"));
-console.log(isomorphicStrings("paper", "title"));
+console.log(isIsomorphic("egg", "add"));
+console.log(isIsomorphic("foo", "bar"));
+console.log(isIsomorphic("paper", "title"));

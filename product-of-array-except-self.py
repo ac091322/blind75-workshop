@@ -51,9 +51,9 @@ Challenge: solve in O(1) time
 
 
 def product_of_array(nums):
-    prefix = [1] * len(nums)
-    suffix = [1] * len(nums)
-    result = [1] * len(nums)
+    prefix = [1] * len(nums)  # [1, 1, 1, 1]
+    suffix = [1] * len(nums)  # [1, 1, 1, 1]
+    result = [1] * len(nums)  # [1, 1, 1, 1]
 
     # compute prefix products
     for i in range(1, len(nums), 1):  # start at 1 because prefix[0] is always 1
@@ -61,7 +61,12 @@ def product_of_array(nums):
         # prefix becomes [1, 1, 2, 8]
 
     # compute suffix products
-    for i in range(len(nums) - 2, -1, -1):  # start at len(nums)-2 because suffix[len(nums)-1] is always 1
+    for i in range(
+        # start at len(nums) - 2 because suffix[len(nums) - 1] is always 1
+        len(nums) - 2,
+        -1,
+        -1,
+    ):
         suffix[i] = suffix[i + 1] * nums[i + 1]
         # suffix becomes [48, 24, 6, 1]
 
