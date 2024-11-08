@@ -5,12 +5,13 @@ Reorder List
 Medium
 
 You are given the head of a singly linked-list. The list can be represented as:
-
 L0 → L1 → … → Ln - 1 → Ln
-Reorder the list to be on the following form:
 
+Reorder the list to be on the following form:
 L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+
 You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+-- see diagrams
 
  Example 1:
 Input: head = [1,2,3,4]
@@ -113,15 +114,15 @@ function printList(head) {
     console.log(result);
 }
 
-// Test cases
+
 let head1 = arrayToList([1, 2, 3, 4]);
 reorderList(head1);
-printList(head1);  // Output: [1, 4, 2, 3]
+printList(head1);  // output: [1, 4, 2, 3]
 
 let head2 = arrayToList([1, 2, 3, 4, 5]);
 reorderList(head2);
-printList(head2);  // Output: [1, 5, 2, 4, 3]
+printList(head2);  // output: [1, 5, 2, 4, 3]
 
 let head3 = arrayToList([1, 2, 3, 4, 5, 6, 7]);
 reorderList(head3);
-printList(head3);  // Output: [1, 7, 2, 6, 3, 5, 4]
+printList(head3);  // output: [1, 7, 2, 6, 3, 5, 4]

@@ -100,19 +100,19 @@ function printList(head) {
   console.log(result);
 }
 
-// Test cases
+
 let head1 = arrayToList([1, 2, 3, 4, 5]);
 let reversedHead1 = reversedLinkedList(head1);
-printList(reversedHead1);  // Output: [5, 4, 3, 2, 1]
+printList(reversedHead1);  // output: [5, 4, 3, 2, 1]
 
 let head2 = arrayToList([1, 2]);
 let reversedHead2 = reversedLinkedList(head2);
-printList(reversedHead2);  // Output: [2, 1]
+printList(reversedHead2);  // output: [2, 1]
 
 let head3 = arrayToList([4]);
 let reversedHead3 = reversedLinkedList(head3);
-printList(reversedHead3);  // Output: [4]
+printList(reversedHead3);  // output: [4]
 
 let head4 = arrayToList([]);
 let reversedHead4 = reversedLinkedList(head4);
-printList(reversedHead4);  // Output: []
+printList(reversedHead4);  // output: []
