@@ -52,7 +52,7 @@ Challenge: solve in O(1) time
 
 def product_of_array(nums):
     prefix = [1] * len(nums)  # [1, 1, 1, 1]
-    suffix = [1] * len(nums)  # [1, 1, 1, 1]
+    suffix = [1 for _ in range(len(nums))]  # [1, 1, 1, 1]
     result = [1] * len(nums)  # [1, 1, 1, 1]
 
     # compute prefix products

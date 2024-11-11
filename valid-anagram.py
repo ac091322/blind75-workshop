@@ -87,4 +87,5 @@ def is_anagram(s, t):
 
 print(is_anagram("racecar", "carrace"))  # output: True
 print(is_anagram("test", "testtest"))  # output: False
+print(is_anagram("test", "testtest"))  # output: False
 print(is_anagram("jar", "jam"))  # output: False

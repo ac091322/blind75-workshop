@@ -16,4 +16,4 @@ def chess_board(input_num):
 
 
 print(chess_board(5))
-# print(chess_board(8))
+print(chess_board(8))

@@ -43,17 +43,17 @@ Approach:
 
 
 def find_good_pairs(lst):
-    counter = {}
+    pair_counter = {}
     good_pairs = 0
 
     for num in lst:
-        if num in counter:
+        if num in pair_counter:
             # every time a duplicate is found, it forms as many good pairs as the number of previous occurrences
             # increase the count of good pairs by the number of times the number has already been seen
-            good_pairs += counter[num]
-            counter[num] += 1
+            good_pairs += pair_counter[num]
+            pair_counter[num] += 1
         else:
-            counter[num] = 1
+            pair_counter[num] = 1
 
     return good_pairs
 

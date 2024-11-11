@@ -43,16 +43,16 @@ Space complexity: O(n)
 
 
 function findGoodPairs(array) {
-  const counter = {};
+  const pairCounter = {};
   let goodPairs = 0;
 
   for (let i = 0; i < array.length; i += 1) {
     let num = array[i];
-    if (num in counter) {
-      goodPairs += counter[num];
-      counter[num] += 1;
+    if (num in pairCounter) {
+      goodPairs += pairCounter[num];
+      pairCounter[num] += 1;
     } else {
-      counter[num] = 1;
+      pairCounter[num] = 1;
     }
   }
 

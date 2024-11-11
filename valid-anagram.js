@@ -80,6 +80,7 @@ const isAnagram = (s, t) => {
 }
 
 
-console.log(isAnagram("racecar", "carrace"));  // output: true
-console.log(isAnagram("test", "testtest"));  // output: false
-console.log(isAnagram("jar", "jam"));  // output: false
+// console.log(isAnagram("racecar", "carrace"));  // output: true
+// console.log(isAnagram("test", "testtest"));  // output: false
+console.log(isAnagram("testtast", "testtest"));  // output: false
+// console.log(isAnagram("jar", "jam"));  // output: false
