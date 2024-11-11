@@ -51,7 +51,7 @@ n == height.length
 0 <= height[i] <= 104
 
 
-Approach:
+Approach: two pointer
 Height is the value of the lower pointer
 Width is the length between the left/right pointers
 If equal, decrement either the left or right pointer

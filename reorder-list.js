@@ -32,7 +32,7 @@ The number of nodes in the list is in the range [1, 5 * 10^4]
 .val
 
 
-Approach: two pointer (Problems if we don't use an array)
+Approach: two pointer
   1. find the midpoint
   2. need to be able to iterate right pointer in the opposite direction of how the links are pointing
   3. interleave the reversed 2nd half with the 1st half

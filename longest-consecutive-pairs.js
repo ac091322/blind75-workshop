@@ -20,4 +20,9 @@ Output: 9
 Constraints:
 0 <= nums.length <= 105
 -109 <= nums[i] <= 109
+
+
+Approach: hash set
+Time complexity: O(n)
+Space complexity: O(n)
 */

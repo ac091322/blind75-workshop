@@ -35,7 +35,7 @@ Space complexity: O(n)
 
 function isPalindrome(s) {
   let filteredS = "";
-  // let filteredS = [];
+  // let filteredS = [];  // much more efficient in js
 
   for (let char of s) {
     if ((char >= "a" && char <= "z") ||

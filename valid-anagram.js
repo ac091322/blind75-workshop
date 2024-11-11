@@ -33,7 +33,7 @@ Constraints:
 s and t consist of lowercase English letters.
 
 
-Approach:
+Approach: hashmap
 Input: s = "racecar", t = "carrace"
 s = {r: 2, a: 2, c: 2, e: 1}
 t = {c: 2, a: 2, r: 2, e: 1}
