@@ -43,7 +43,7 @@ numbers is sorted in non-decreasing order.
 The tests are generated such that there is exactly one solution.
 
 
-Approach:
+Approach: two pointer
 Input: [1,2,3,4,5,6,7,8,9], target = 17
         L               R --> 10
           L             R --> 11

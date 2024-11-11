@@ -27,7 +27,7 @@ Constraints:
 1 <= nums[i] <= 100
 
 
-Approach:
+Approach: hashmap
 1. create a hashmap counter to keep track of how many times each number has been seen so far in the list
 2. set a variable to count the good pairs starting from 0
 3. iterate through the numbers in the list

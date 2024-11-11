@@ -20,7 +20,7 @@ Input: [1];
 Output: false
 
 
-Approach:
+Approach: hashmap
 Input: nums = [1, 2, 3, 3]
 Hashmap: {1: true, 2: true, 3: true,}
 Output: return True

@@ -33,18 +33,19 @@ def longest_consecutive(nums: list[int]) -> int:
     # return 0
 
     num_set = set(nums)  # variable must be iterable if initializing a set this way
-    print(num_set)
     # num_set = {nums}  # if initialized this way, it will be {[100, 4, 200, 1, 3, 2]}
-    longest = 0
+    longest = 0  # covers empty lists
 
     for num in num_set:
         # find the starting point, if num - 1 is not in the set, that means num could be the start of a new sequence
         if (num - 1) not in num_set:
-            # if num is the start of a new sequence, then length starts out at 1
+            # if num is the start of a new sequence, then length starts out at 1 or resets to 1
             length = 1
 
+            # if num + length, or num + 1 is found, the sequence continues and the length increases
             while (num + length) in num_set:
                 length += 1
+
             longest = max(length, longest)
 
     return longest
@@ -54,7 +55,9 @@ print(longest_consecutive([100, 4, 200, 1, 3, 2]))  # output: 4
 print(longest_consecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))  # output: 9
 print(longest_consecutive([9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]))  # output: 7
 print(longest_consecutive([]))  # output: 0
+print(longest_consecutive([7]))  # output: 1
 print(longest_consecutive([-3, -2, 0, -4, -5, 1]))  # output: 4
+print(longest_consecutive([1, 2, 3, 4, 6, 7, 8, 100, 9, 10, 11, 12]))  # output: 7
 
 # edge_case = [9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]
 # edge_case.sort()

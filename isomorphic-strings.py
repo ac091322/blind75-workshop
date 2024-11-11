@@ -32,7 +32,7 @@ t.length == s.length
 s and t consist of any valid ascii character.
 
 
-Approach:
+Approach: hashmap
 1. check if the length of the strings is the same, return false if not
 2. create a hashmap to map s_to_t and t_to_s
 3. iterate through characters in s and t in pairs and check if they exist in the hashmaps
