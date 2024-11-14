@@ -39,8 +39,8 @@ Approach: iterative depth first search
   3.3. push .left and .right children of the current node and the new depth --> [[node.left, curDepth + 1]] and [[node.right, curDepth + 1]]
 4. return the max depth seen
 
-Time complexity:
-Space complexity:
+Time complexity: O(n), where n is the number of nodes in the tree (in the worst-case scenario, in a completely unbalanced tree, the time complexity is O(n), but in a balanced tree, the complexity is still O(n) since we must visit each node, regardless of the tree's structure
+Space complexity: O(n) for worst case but probably less for the average
 */
 
 

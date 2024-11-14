@@ -51,4 +51,4 @@ function hasDuplicate(arrayOfNums) {
 }
 
 
-console.log(hasDuplicate([1, 2, 3, 3]));
+console.log(hasDuplicate([1, 2, 3, 3]));  // output: true
