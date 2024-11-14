@@ -22,7 +22,6 @@ Example 2:
 Input: nums = [0,1,1]
 Output: []
 Explanation: The only possible triplet does not sum up to 0.
-
 Example 3:
 Input: nums = [0,0,0]
 Output: [[0,0,0]]
@@ -38,7 +37,7 @@ function threeSum(nums) {
   const result = [];
   nums.sort((a, b) => a - b);
 
-  for (let i = 0; i < nums.length - 2; i++) {
+  for (let i = 0; i < nums.length - 2; i += 1) {
     // skip duplicates for the first element
     if (i > 0 && nums[i] === nums[i - 1]) continue;
 
