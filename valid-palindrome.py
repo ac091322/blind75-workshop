@@ -53,22 +53,10 @@ class Solution:
         return "a" <= char <= "z" or "A" <= char <= "Z" or "0" <= char <= "9"
 
 
-"""
-Time complexity: O(n)
-Space complexity: O(n)
-"""
-
-
 # def is_palindrome(s):
 #     filtered_s = "".join(char.lower() for char in s if char.isalnum())
 #     print(filtered_s)
 #     return filtered_s == filtered_s[::-1]
-
-
-"""
-Time complexity: O(n^2)
-Space complexity: O(n)
-"""
 
 
 # def is_palindrome(s):

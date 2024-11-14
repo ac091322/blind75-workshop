@@ -34,20 +34,23 @@ Space complexity: O(n)
 
 
 function isPalindrome(s) {
-  let filteredS = "";
-  // let filteredS = [];  // much more efficient in js
+  // let filteredS = "";
+  let filteredS = [];  // much more efficient in js
 
   for (let char of s) {
     if ((char >= "a" && char <= "z") ||
       (char >= "A" && char <= "Z") ||
       (char >= "0" && char <= "9")) {
-      filteredS += char.toLowerCase();
+      // filteredS += char.toLowerCase();
+      filteredS.push(char.toLowerCase());
     }
   }
 
-  const reversedS = filteredS.split("").reverse().join("");
-  return filteredS === reversedS;
-  // return filteredS.join("") === filteredS.reverse().join("");
+  // let reversedS = filteredS.split("").reverse().join("");
+  // return filteredS === reversedS;
+  return filteredS.join() === filteredS.reverse().join("");
+
+  // return filteredS === filteredS.reverse();  // this does not work and will always return true because .reverse() reverses the array in place, and so it's comparing the same array to itself since it's the same reference in memory
 }
 
 // function isAlphaNumeric(char) {
