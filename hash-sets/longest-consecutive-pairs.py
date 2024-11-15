@@ -54,12 +54,15 @@ def longest_consecutive(nums: list[int]) -> int:
 
     for num in num_set:
         # find the starting point, if num - 1 is not in the set, that means num could be the start of a new sequence
+        # in the first example, 1 - 1 is not in the hash set, so length = 1
         if (num - 1) not in num_set:
             # if num is the start of a new sequence, then length starts out at 1 or resets to 1
             length = 1
 
             # if num + length, or num + 1 is found, the sequence continues and the length increases
             # the current number does not change, it's the while loop that keeps expanding due to length += 1 and ends only when num + length is no longer found in the set
+            # in the first example, 1 + length of 1 is in the hash set (2), 1 + length 2 is in the hash set (3), and 1 + length 3 is in the hash set (4), bringing length up to += 4
+            # 1 + length 5 is not in the hash set, so it exists and goes onto the next number
             while (num + length) in num_set:
                 length += 1
 
@@ -76,6 +79,6 @@ print(longest_consecutive([7]))  # output: 1
 print(longest_consecutive([-3, -2, 0, -4, -5, 1]))  # output: 4
 print(longest_consecutive([6, 7, 8, 100, 9, 10, 11, 12, 1, 2, 3, 4]))  # output: 7
 
-# edge_case = [9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]
-# edge_case.sort()
-# print(edge_case)
+edge_case = [9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]
+edge_case.sort()
+print(edge_case)
