@@ -42,7 +42,6 @@ Approach: hashmap
 4. do the same for t
 5. return true at the end
 
-
 Time complexity: O(n)
 Space complexity: 0(n)
 """
