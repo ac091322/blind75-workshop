@@ -43,7 +43,7 @@ The final result is list(hashmap.values()), which is [['eat', 'tea', 'ate'], ['t
 Approach: hashmap
 1. create a hashmap to store the sorted strings as keys
 2. iterate over the strings:
-  2.1. sort the substrings, which turns them into an array, then join them again into a string
+  2.1. sort the substrings, which turns them into an array, then join them again into a string, they are the keys in the hashmap
   2.2. if the sorted substring is not in the hashmap, set its value to the substring: {sorted_str: substring}
   2.3. if the sorted substring is in the hashmap, append the substring as the value to the existing key
 3. return the values of the hashmap as a list
