@@ -47,7 +47,7 @@ Output: true
 
 
 Time complexity: O(n) because of comparing value pairs in both dictionaries
-Space complexity: O(s+t) where s is the length of string 1 and t is the length of string 2
+Space complexity: O(s + t) where s is the length of string 1 and t is the length of string 2
   - s and t will always be the same length so: O(n + n) --> O(2n) --> O(n)
 */
 
