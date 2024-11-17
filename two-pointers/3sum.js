@@ -94,6 +94,8 @@ function threeSum(nums) {
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));  // output: [[-1,-1,2],[-1,0,1]]
 // sortedArray = [-4, -1, -1, 0, 1, 2]
+console.log(threeSum([-4, -1, -1, -1, 0, 1, 2]));  // output: [[-1, -1, 2], [-1, 0, 1]]
+console.log(threeSum([-4, -1, -1, -1, 0, 1, 2, 2, 2]));  // output: [[-1, -1, 2], [-1, 0, 1]]
 console.log(threeSum([4, 0, 1, 2, 6, 2]));  // output: []
 console.log(threeSum([0, 1, 1]));  // output: []
 console.log(threeSum([0, 0, 0]));  // output: [[0,0,0]]
