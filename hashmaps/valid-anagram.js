@@ -69,9 +69,9 @@ const isAnagram = (s, t) => {
 
   const counterSKeys = Object.keys(counterS);
   for (let i = 0; i < counterSKeys.length; i += 1) {
-    let key = counterSKeys[i];  // find the keys
-    let valuesS = counterS[key];  // find the values
-    let valuesT = counterT[key];  // find the values
+    let keys = counterSKeys[i];  // find the keys
+    let valuesS = counterS[keys];  // find the values
+    let valuesT = counterT[keys];  // find the values
     // need to check if they are not equal, otherwise it will return true on the first equal match and not check the rest of the keys
     if (valuesS !== valuesT) return false  // will get undefined if keys are different
   }

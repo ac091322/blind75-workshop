@@ -48,7 +48,7 @@ function isPalindrome(s) {
 
   // let reversedS = filteredS.split("").reverse().join("");
   // return filteredS === reversedS;
-  return filteredS.join() === filteredS.reverse().join("");
+  return filteredS.join("") === filteredS.reverse().join("");
 
   // return filteredS === filteredS.reverse();  // this does not work and will always return true because .reverse() reverses the array in place, and so it's comparing the same array to itself since it's the same reference in memory
 }
