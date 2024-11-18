@@ -79,8 +79,8 @@ def encode(strs):
 
 def decode(s):
     decoded = []
-    i = 0
 
+    i = 0
     while i < len(s):
         j = i  # this pointer that will help find the position of the #
 

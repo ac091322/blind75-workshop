@@ -59,6 +59,7 @@ function threeSum(nums) {
   const result = [];
   nums.sort((a, b) => a - b);
 
+  // easier to use a for loop for the outer loop because in a while loop, the conditional that results in a continue will never increase i by 1 unless written again before the continue
   for (let i = 0; i < nums.length - 2; i += 1) {
     // skip duplicates for the first element
     if (i > 0 && nums[i] === nums[i - 1]) continue;
