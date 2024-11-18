@@ -48,66 +48,61 @@ It is guaranteed that the answer is unique.
 Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
 
-Approach:
-1. create a count:
-  count = {1: 3, 2: 2, 3: 1, 4: 3}
-2. create a bucket with length as long as input array representing the number of times an element is repeated in the original input array
-  2.1 index 8 means an element is repeated 8 times
-  2.2. won't have any elements that appear 0 times
-  2.3. will never have an element repeated more times than the length of the input
-  buckets = [null, null, null, null ,null, null, null, null, null]
-  index        0     1     2     3     4     5     6     7     8
-  buckets = [null,  [3],  [2], [1,4], null, null, null, null, null]
-
-Pseudocode:
-  Create an array called buckets that is the size nums.length
-  Create a hashmap to keep track of counts
-  Iterate through nums and add the count of each num to the hashmap
-  Iterate through each count and push the key of each count into our bucket array using the value as the index
-  Iterate through buckets starting from the back
-  Push in items to the result until we have k elements and then return the result
-
+Approach: bucket sort
+1. create a frequency dictionary to store the number and the frequency count as key-value pairs
+2, create a frequency bucket with the length as long as the input list + 1 to cover the index of 0
+3. iterate through the nums list:
+  3.1. if the num is in the frequency dictionary, add 1 to increase it's frequency value
+  3.2. if the num is not in the frequency dictionary, add it to the dictionary with a frequency value of 1
+4. iterate to populate the frequency bucket:
+  4.1. the key in the dictionary is the number, the value in the dictionary is the frequency
+  4.2. the frequency corresponds to the index value in the frequency bucket
+  4.3. put the number into the corresponding bucket according to the value of the number in the dictinonary
+5. create a result list to store the most frequent numbers
+6. iterate backwards to start from the highest frequency (no need to go to index 0 since it's always empty):
+  6.1. iterate in each bucket to extract the numbers from the frequency buckets
+  6.2. put the extracted numbers into the result list
+  6.3. if the length of the result list meets the value of k, return the result list
 
 Time complexity: O(n)
 Space complexity: O(n)
+
+The inner loop iterates over each element in freqeuncy_bucket[i] for every frequency bucket i. Since each bucket in frequency_bucket contains the numbers that appear with the same frequency, the total number of elements across all the buckets is exactly equal to the number of elements in the input list. Therefore, even though there are multiple iterations of the inner loop for each frequency bucket, every element from nums is processed only once across all the buckets. This means that the total number of iterations across all inner loops is proportional to the length of the input array n, making the time complexity of the inner loop O(n), not O(n^2).
 */
 
 
 function topKFrequent(nums, k) {
-  let buckets = new Array(nums.length);
-  let counter = {};
+  let frequencyCounter = {};
+  let frequencyBucket = new Array(nums.length + 1);
 
-  for (let i = 0; i < nums.length; i++) {
-    let num = nums[i];
-    counter[num] = counter[num] ? counter[num] + 1 : 1;
-  };
+  // in js need to fill the empty frequency bucket with empty arrays
+  for (let i = 0; i < frequencyBucket.length; i += 1) {
+    frequencyBucket[i] = []
+  }
 
-  for (let num in counter) {
-    let count = counter[num];
-    if (!buckets[count]) {
-      buckets[count] = [];
+  for (let num of nums) {
+    frequencyCounter[num] ? frequencyCounter[num] += 1 : frequencyCounter[num] = 1;
+  }
+
+  for (let num in frequencyCounter) {
+    let freq = frequencyCounter[num];
+    frequencyBucket[freq].push(num);
+  }
+
+  let result = []
+  for (let i = frequencyBucket.length - 1; i > 0; i -= 1) {
+    for (let num of frequencyBucket[i]) {
+      result.push(+num);
+      if (result.length === k) return result;
     }
-    buckets[count].push(num);
-  };
-
-  const res = [];
-  let copyk = k;
-
-  for (let j = buckets.length - 1; j >= 0; j -= 1) {
-    if (buckets[j]) {
-      for (let z = 0; z < buckets[j].length; z += 1) {
-        let item = buckets[j][z];
-        res.push(item);
-        copyk -= 1;
-        if (copyk === 0) return res;
-      }
-    }
-  };
-
-  return res;
+  }
 }
 
 
 console.log(topKFrequent([1, 1, 1, 2, 2, 3, 4, 4, 4], 2));  // output: [1, 4]
 console.log(topKFrequent([1, 2, 2, 2, 3, 3, 3], 2));  // output: [3, 2] OR [2, 3]
 console.log(topKFrequent([1, 1, 1, 2, 2, 2, 3, 3, 3], 3));  // output: [1,2,3] OR [2,1,3] OR [3,1,2]
+console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2));  // output: [1,2]
+console.log(topKFrequent([1], 1));  // output: [1]
+console.log(topKFrequent([7, 7], 1));  // output: [7]
+console.log(topKFrequent([], 0));  // output: [7]
