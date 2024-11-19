@@ -57,9 +57,9 @@ Approach: bucket sort
 4. iterate to populate the frequency bucket:
   4.1. the key in the dictionary is the number, the value in the dictionary is the frequency
   4.2. the frequency corresponds to the index value in the frequency bucket
-  4.3. put the number into the corresponding bucket according to the value of the number in the dictinonary
+  4.3. put the number into the corresponding bucket according to the value of the number in the dictionary
 5. create a result list to store the most frequent numbers
-6. iterate backwards to start from the highest frequency (no need to go to index 0 since it's always empty):
+6. iterate backwards to start from the highest frequency since we are trying to find the most frequent (no need to go to index 0 since it's always empty):
   6.1. iterate in each bucket to extract the numbers from the frequency buckets
   6.2. put the extracted numbers into the result list
   6.3. if the length of the result list meets the value of k, return the result list
