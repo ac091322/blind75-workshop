@@ -86,7 +86,7 @@ function topKFrequent(nums, k) {
 
   for (let num in frequencyCounter) {
     let freq = frequencyCounter[num];
-    frequencyBucket[freq].push(num);
+    frequencyBucket[freq].push(+num);  // must remember to conver num to a number because as the key in an object, it is a string
   }
 
   let result = []
