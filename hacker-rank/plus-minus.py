@@ -44,5 +44,5 @@ def plusMinus(arr):
     print(f"{zeroes_ratio:.6f}")
 
 
-print(plusMinus([1, 1, 0, -1, -1]))  # output: 0.400000 0.400000 0.200000
-print(plusMinus([-4, 3, -9, 0, 4, 1]))  # output: 0.500000 0.333333 0.166667
+plusMinus([1, 1, 0, -1, -1])  # output: 0.400000 0.400000 0.200000
+plusMinus([-4, 3, -9, 0, 4, 1])  # output: 0.500000 0.333333 0.166667
