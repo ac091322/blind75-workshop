@@ -73,7 +73,7 @@ function pathCrossing(path) {
 
         visited.add(`${x}, ${y}`)
     }
-
+    console.log(visited)
     return false
 }
 

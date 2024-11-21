@@ -86,13 +86,15 @@ function topKFrequent(nums, k) {
 
   for (let num in frequencyCounter) {
     let freq = frequencyCounter[num];
-    frequencyBucket[freq].push(+num);  // must remember to conver num to a number because as the key in an object, it is a string
+    frequencyBucket[freq].push(+num);
+    // must convert num to a number to pass the test because in js all keys in an object are strings
+    // but in py dictionary keys retain their original type
   }
 
   let result = []
   for (let i = frequencyBucket.length - 1; i > 0; i -= 1) {
     for (let num of frequencyBucket[i]) {
-      result.push(+num);
+      result.push(num);
       if (result.length === k) return result;
     }
   }
