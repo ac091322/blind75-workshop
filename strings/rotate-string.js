@@ -28,16 +28,29 @@ s and goal consist of lowercase English letters.
 */
 
 
-function rotateString(s, goal) {
-    let shiftedArray = []
+// function rotateString(s, goal) {
+//     if (s.length !== goal.length) return false;
+//     return (s + s).includes(goal);
+// }
 
-    let i = 0;
-    while (i < s.length) {
-        shiftedArray.push(s.pop())
-        i += 1
+
+function rotateString(s, goal) {
+    if (s.length !== goal.length) return false;
+
+    let stringToArr = s.split("");
+
+    for (let i = 0; i < stringToArr.length; i += 1) {
+        // create a new array by slicing at index 1 to the end of the array
+        // then append char at index 0 of the original array to the end of the new array from .slice(), creating a second new array
+        let shiftedArr = stringToArr.slice(1).concat(stringToArr[0]);
+        // in js can directly append a string char to the end of an array, but not in py
+
+        stringToArr = shiftedArr;  // replace the entire original array with the new array
+
+        if (shiftedArr.join("") === goal) return true;
     }
 
-    console.log(shiftedArray)
+    return false;
 }
 
 
