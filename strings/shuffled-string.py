@@ -52,12 +52,13 @@ All values of indices are unique.
 def restoreString(s: str, indices: list[int]) -> str:
     result = [0] * len(s)
 
-    for index, char in enumerate(s):
+    for i, char in enumerate(s):
+        index = indices[i]
         # indices[index] are the values in the indices list
         # result[4] = "c"
         # result[5] = "o"
         # result = [0, 0, 0, 0, "c", "o", 0, 0]
-        result[indices[index]] = char
+        result[index] = char
 
     return "".join(result)
 
@@ -74,4 +75,4 @@ def restoreString(s: str, indices: list[int]) -> str:
 
 
 print(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]))  # output: "leetcode"
-# print(restoreString("abc", [0, 1, 2]))  # output: "abc"
+print(restoreString("abc", [0, 1, 2]))  # output: "abc"

@@ -81,6 +81,8 @@ function topKFrequent(nums, k) {
   }
 
   for (let num of nums) {
+    // creating the frequency by adding up the number of times the num appears in nums
+    // in the frequencyCounter object: key = num, frequency = value
     frequencyCounter[num] ? frequencyCounter[num] += 1 : frequencyCounter[num] = 1;
   }
 

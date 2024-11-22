@@ -42,7 +42,7 @@ def rotate_string(s, goal):
     # cannot do s.split() beacuse then it will return the entire string as one string in a list
     string_to_list = list(s)
 
-    for i in range(0, len(s), 1):
+    for _ in range(0, len(s), 1):
         # must concat list with list, the type must be the same, cannot concat list with string character
         # slice creates a new list, appending [string_to_list[0]] creates a second list based off of the sliced list
         shifted_list = string_to_list[1::] + [string_to_list[0]]
