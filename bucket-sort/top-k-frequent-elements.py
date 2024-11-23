@@ -106,6 +106,8 @@ def top_k_frequent(nums, k):
             if len(result) == k:
                 return result
 
+    return None
+
 
 print(top_k_frequent([1, 1, 1, 2, 2, 3, 4, 4, 4], 2))  # output: [1, 4]
 print(top_k_frequent([1, 2, 2, 2, 3, 3, 3], 2))  # output: [3, 2] OR [2, 3]

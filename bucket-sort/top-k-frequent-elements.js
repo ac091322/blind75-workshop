@@ -73,9 +73,10 @@ The inner loop iterates over each element in freqeuncy_bucket[i] for every frequ
 
 function topKFrequent(nums, k) {
   let frequencyCounter = {};
-  let frequencyBucket = new Array(nums.length + 1);
+  let frequencyBucket = new Array(nums.length + 1);  // cannot use .fill([])
+  // filling with .fill([]) fills every slot in the new array with the same reference to the same array
 
-  // in js need to fill the empty frequency bucket with empty arrays
+  // must fill the empty frequency bucket through iteration
   for (let i = 0; i < frequencyBucket.length; i += 1) {
     frequencyBucket[i] = []
   }
@@ -88,8 +89,7 @@ function topKFrequent(nums, k) {
 
   for (let num in frequencyCounter) {
     let freq = frequencyCounter[num];
-    frequencyBucket[freq].push(+num);
-    // must convert num to a number to pass the test because in js all keys in an object are strings
+    frequencyBucket[freq].push(+num); // must convert num to a number to pass the test because in js all keys in an object are strings
     // but in py dictionary keys retain their original type
   }
 
@@ -100,6 +100,8 @@ function topKFrequent(nums, k) {
       if (result.length === k) return result;
     }
   }
+
+  return null;
 }
 
 
