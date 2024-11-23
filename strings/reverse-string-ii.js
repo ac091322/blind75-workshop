@@ -32,8 +32,8 @@ function reverseString(s, k) {
 
     for (let i = 0; i < s.length; i += 2 * k) {
         let slicedAndReversed = result.slice(i, i + k).reverse();
-        // remove starting from the i or 0 index, go up to but not inclusive of the k or 2 index (from 0 to 1), and then insert in place by spreading the sliced part
-        result.splice(i, k, ...slicedAndReversed);
+        // remove starting from the i or 0 index, remove k or 2 elements, and then insert in place by spreading the sliced part
+        result.splice(i, k, ...slicedAndReversed);  // .splice(start, number of elements to remove, elements to insert)
     }
 
     return result.join("");

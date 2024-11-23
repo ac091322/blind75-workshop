@@ -1,4 +1,6 @@
 /*
+https://leetcode.com/problems/di-string-match/description/
+
 A permutation perm of n + 1 integers of all the integers in the range [0, n] can be represented as a string s of length n where:
 
 s[i] == 'I' if perm[i] < perm[i + 1], and
@@ -16,7 +18,6 @@ Output: [0,1,2,3]
 Example 3:
 Input: s = "DDI"
 Output: [3,2,0,1]
-
 
 Constraints:
 1 <= s.length <= 105
@@ -39,7 +40,8 @@ function diStringMatch(s) {
         }
     }
 
-    permutation.push(lowNum);
+    // in js pushing the highNum is a little more efficient than in py
+    permutation.push(highNum);
     return permutation;
 }
 
