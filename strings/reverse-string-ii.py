@@ -20,6 +20,10 @@ Constraints:
 1 <= s.length <= 104
 s consists of only lowercase English letters.
 1 <= k <= 104
+
+
+Time complexity: O(n)
+Space complexity: O(n)
 """
 
 

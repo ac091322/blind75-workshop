@@ -46,6 +46,8 @@ def rotate_string(s, goal):
         # must concat list with list, the type must be the same, cannot concat list with string character
         # slice creates a new list, appending [string_to_list[0]] creates a second list based off of the sliced list
         shifted_list = string_to_list[1::] + [string_to_list[0]]
+
+        # must set string_to_list to the shifted string otherwise every iteration will start from the original list
         string_to_list = shifted_list
 
         if "".join(string_to_list) == goal:

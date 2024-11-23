@@ -23,8 +23,8 @@ Given five positive integers, find the minimum and maximum values that can be ca
 
 def miniMaxSum(arr):
     arr.sort()
-    min_sum = sum(arr[: len(arr) - 1])
-    max_sum = sum(arr[1:])
+    min_sum = sum(arr[: len(arr) - 1 : 1])  # same as [:len(arr) - 1] or [:len(arr)-1:]
+    max_sum = sum(arr[1 : len(arr) : 1])  # same as [1:] or [1::]
     print(min_sum, max_sum)
 
 
