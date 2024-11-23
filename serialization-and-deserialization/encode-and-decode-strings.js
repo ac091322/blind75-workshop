@@ -68,31 +68,31 @@ Space complexity: O(1)
 
 
 function encode(strs) {
-    let encodedS = "";
+  let encodedS = "";
 
-    for (let substring of strs) {
-        encodedS += String(substring.length) + "#" + substring;  // due to type coercion don't need to to String()
-    }
+  for (let substring of strs) {
+    encodedS += String(substring.length) + "#" + substring;  // due to type coercion don't need to to String()
+  }
 
-    return encodedS;
+  return encodedS;
 }
 
 function decode(s) {
-    let decodedS = [];
+  let decodedS = [];
 
-    let i = 0;
-    while (i < s.length) {
-        let j = i;
-        while (s[j] !== "#") j += 1;
+  let i = 0;
+  while (i < s.length) {
+    let j = i;
+    while (s[j] !== "#") j += 1;
 
-        let length = parseInt(s.slice(i, j));
-        i = j + 1;
-        j = i + length;
-        decodedS.push(s.slice(i, j));
-        i = j
-    }
+    let length = parseInt(s.slice(i, j));  // Number(s.slice(i , j)) works too
+    i = j + 1;
+    j = i + length;
+    decodedS.push(s.slice(i, j));
+    i = j
+  }
 
-    return decodedS;
+  return decodedS;
 }
 
 
