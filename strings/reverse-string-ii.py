@@ -31,7 +31,7 @@ def reverse_string(s, k):
     result = list(s)
 
     # move the step by every 2 * the value of k, for example in character chunks of length 4
-    for i in range(0, len(s), 2 * k):
+    for i in range(0, len(result), 2 * k):
         # reverse the first k, or 2 characters of the current 4 character chunk
         # i + k will slice the length of the characters to be reversed (not inclusive of the end): s[0:2] --> a,b
         # normally slicing will result in a new list, but when we do result[i:i+k] = something, py will update the original list in place by replacing the slice with whatever is on the right of the =
