@@ -39,7 +39,7 @@ function rotateString(s, goal) {
 
     let stringToArr = s.split("");
 
-    for (let i = 0; i < stringToArr.length; i += 1) {
+    for (let _ = 0; _ < stringToArr.length; _ += 1) {
         // create a new array by slicing at index 1 to the end of the array
         // then append char at index 0 of the original array to the end of the new array from .slice(), creating a second new array
         let shiftedArr = stringToArr.slice(1).concat(stringToArr[0]);
