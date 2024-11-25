@@ -10,6 +10,10 @@ Output: Hello
 
 Input: "No words"
 Output: -1
+
+
+Time complexity: O(n * m) where n is the length of the string input and m is the maximum of any word in the string
+Space complexity: O(n + m) where n is the length of the string input and m is the maximum of any word in the string
 */
 
 
@@ -26,9 +30,9 @@ function letterCount(string) {
         }
 
         // Object.values() generates an array of values, Math.max does not take an array, so need to spread the values
-        let highest_char_count = Math.max(...Object.values(charCounter));
-        if (highest_char_count > maxRepeatingCount) {
-            maxRepeatingCount = highest_char_count
+        let highestCharCount = Math.max(...Object.values(charCounter));
+        if (highestCharCount > maxRepeatingCount) {
+            maxRepeatingCount = highestCharCount
             maxRepeatingWord = word
         }
     }
