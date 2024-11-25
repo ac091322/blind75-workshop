@@ -14,29 +14,23 @@ Outout: 1
 
 
 function arrayChallenge(arr) {
-    let sum = 0
-    let mode = null
-    let modeFrequency = {}
-    let highest_mode_frequnecy = 0
-
-    for (let i = 0; i < arr.length; i += 1) {
-        sum += arr[i]
-    }
-
+    let sum = arr.reduce((total, num) => total + num, 0)
     let mean = sum / arr.length
+    let mode = null
+    let modeFreq = {}
+    let highestModeFreq = 0
 
     for (let num of arr) {
-        modeFrequency[num] ? modeFrequency[num] += 1 : modeFrequency[num] = 1
+        modeFreq[num] ? modeFreq[num] += 1 : modeFreq[num] = 1
     }
 
-    for (let num in modeFrequency) {
-        if (modeFrequency[num] > highest_mode_frequnecy) {
-            highest_mode_frequnecy = modeFrequency[num]
-            mode = Number(num)
+    for (let num in modeFreq) {
+        if (modeFreq[num] > highestModeFreq) {
+            highestModeFreq = modeFreq[num]
+            mode = +num
         }
     }
-
-    return mean === mode ? 1 : 0
+    return mode === mean ? 1 : 0
 }
 
 

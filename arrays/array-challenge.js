@@ -14,13 +14,12 @@ Outout: 1
 
 
 function arrayChallenge(arr) {
-    let sum = 0;
+    // arr.reduce((accumulator, curVal, curIdx, array), initialVal)
+    let sum = arr.reduce((total, num) => total + num, 0);
+    let mean = sum / arr.length;
     let modeFreq = {};
     let maxModeFreq = 0;
     let mode = null;
-
-    for (let i = 0; i < arr.length; i += 1) sum += arr[i];
-    let mean = sum / arr.length;
 
     for (let num of arr) modeFreq[num] ? modeFreq[num] += 1 : modeFreq[num] = 1
 
@@ -31,7 +30,7 @@ function arrayChallenge(arr) {
         }
     }
 
-    return mode === mean ? 1 : 0
+    return mode === mean ? 1 : 0;
 }
 
 
