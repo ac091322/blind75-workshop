@@ -27,7 +27,7 @@ function arrayChallenge(arr) {
     for (let num in modeFreq) {
         if (modeFreq[num] > maxModeFreq) {
             maxModeFreq = modeFreq[num];
-            mode = Number(num);
+            mode = Number(num);  // need to conver to number because it is a string as the key in an object
         }
     }
 
