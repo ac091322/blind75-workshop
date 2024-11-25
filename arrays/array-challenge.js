@@ -1,8 +1,7 @@
 /*
 Array Challenge
-Easy
+have the tunction Arravchallence arr take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. 5, 3, 3, 3, 1) should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode.
 
-Have the function ArrayChallenge (arr) take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. 5, 3, 3, 3, 1) should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode.
 
 Examples:
 Input: [1, 2, 31]
@@ -14,23 +13,24 @@ Outout: 1
 
 
 function arrayChallenge(arr) {
-    // arr.reduce((accumulator, curVal, curIdx, array), initialVal)
-    let sum = arr.reduce((total, num) => total + num, 0);
-    let mean = sum / arr.length;
+    let sum = 0;
     let modeFreq = {};
     let maxModeFreq = 0;
     let mode = null;
+
+    for (let i = 0; i < arr.length; i += 1) sum += arr[i];
+    let mean = sum / arr.length;
 
     for (let num of arr) modeFreq[num] ? modeFreq[num] += 1 : modeFreq[num] = 1
 
     for (let num in modeFreq) {
         if (modeFreq[num] > maxModeFreq) {
             maxModeFreq = modeFreq[num];
-            mode = Number(num);  // need to conver to number because it is a string as the key in an object
+            mode = Number(num);
         }
     }
 
-    return mode === mean ? 1 : 0;
+    return mode === mean ? 1 : 0
 }
 
 
