@@ -22,11 +22,12 @@ function arrayChallenge(arr) {
     let mean = sum / arr.length;
 
     for (let num of arr) modeFreq[num] ? modeFreq[num] += 1 : modeFreq[num] = 1
+    // num is put in modeFreq as the key, which is a string
 
     for (let num in modeFreq) {
         if (modeFreq[num] > maxModeFreq) {
             maxModeFreq = modeFreq[num];
-            mode = Number(num);
+            mode = Number(num);  // converts the key "num", which is a string, to a number
         }
     }
 
