@@ -41,5 +41,6 @@ function letterCount(string) {
     return maxRepeatingWord
 }
 
+
 console.log(letterCount("Hello apple pie"));  // output: Hello
 console.log(letterCount("No words"));  // output: -1

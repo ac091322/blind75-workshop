@@ -14,19 +14,19 @@ Outout: 1
 
 function arrayChallenge(arr) {
     let sum = 0;
-    let modeFreq = {};
-    let maxModeFreq = 0;
     let mode = null;
+    let modeCounter = {};
+    let maxModeCount = 0;
 
     for (let i = 0; i < arr.length; i += 1) sum += arr[i];
     let mean = sum / arr.length;
 
-    for (let num of arr) modeFreq[num] ? modeFreq[num] += 1 : modeFreq[num] = 1
+    for (let num of arr) modeCounter[num] ? modeCounter[num] += 1 : modeCounter[num] = 1
     // num is put in modeFreq as the key, which is a string
 
-    for (let num in modeFreq) {
-        if (modeFreq[num] > maxModeFreq) {
-            maxModeFreq = modeFreq[num];
+    for (let num in modeCounter) {
+        if (modeCounter[num] > maxModeCount) {
+            maxModeCount = modeCounter[num];
             mode = Number(num);  // converts the key "num", which is a string, to a number
         }
     }

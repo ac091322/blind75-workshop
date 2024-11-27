@@ -39,17 +39,14 @@ def di_string_match(s):
     for char in s:
         if char == "I":
             permutation.append(low_num)
-            print("low", low_num)
             low_num += 1
         elif char == "D":
             permutation.append(high_num)
-            print("high", high_num)
             high_num -= 1
 
     # after processing all characters in s, there will always be exactly one remaining, unused number
     # both low_num and high_num will point to this last number, so just append the last number
     permutation.append(low_num)  # at this point low == high
-    # appending the low_num in py is more efficient than in js
     return permutation
 
 

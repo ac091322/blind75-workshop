@@ -40,7 +40,6 @@ function diStringMatch(s) {
         }
     }
 
-    // in js pushing the highNum is a little more efficient than in py
     permutation.push(highNum);
     return permutation;
 }

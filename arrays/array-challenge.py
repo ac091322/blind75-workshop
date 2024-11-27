@@ -14,18 +14,17 @@ Outout: 1
 
 
 def array_challenge(arr):
-    sum_of_arr = sum(arr)
-    mean = int(sum_of_arr / len(arr))
-    mode_frequency = {}
-    max_mode_frequency = 0
+    mean = sum(arr) / len(arr)
     mode = None
+    mode_counter = {}
+    max_mode_count = 0
 
     for num in arr:
-        mode_frequency[num] = mode_frequency.get(num, 0) + 1
+        mode_counter[num] = mode_counter.get(num, 0) + 1
 
-    for num in mode_frequency:
-        if mode_frequency[num] > max_mode_frequency:
-            max_mode_frequency = mode_frequency[num]
+    for num in mode_counter:
+        if mode_counter[num] > max_mode_count:
+            max_mode_count = mode_counter[num]
             mode = num
 
     return 1 if mode == mean else 0

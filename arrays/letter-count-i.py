@@ -28,6 +28,7 @@ def letter_count(string):
         for char in word.lower():
             char_count[char] = char_count.get(char, 0) + 1
 
+        # max() works on both list() of .values() or no list()
         highest_char_count = max(char_count.values())
 
         if highest_char_count > max_repeating_count:
