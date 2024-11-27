@@ -57,7 +57,11 @@ Space complexity: O(1) only uses left zeroes, right ones, and max score to store
 
 function maxScore(str) {
     let leftZeroes = 0;
+
+    // split the strings on the 1s: "011101" --> [ '0', '', '', '0', '' ]
+    // the number of 1s is always one less than the number of pieces the string split into
     let rightOnes = str.split("1").length - 1;
+
     let maxScore = 0;
 
     for (let i = 0; i < str.length - 1; i += 1) {
@@ -73,6 +77,7 @@ function maxScore(str) {
 }
 
 
+console.log(maxScore("00010000"));  // output: 6
 console.log(maxScore("011101"));  // output: 5
 console.log(maxScore("00111"));  // output: 5
 console.log(maxScore("1111"));  // output: 3

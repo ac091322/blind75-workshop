@@ -72,6 +72,18 @@ class Solution:
 
 #     return filtered_S == filtered_S[::-1]
 
+
+# def is_palindrome(s):
+#     filtered_s = []
+
+#     for char in s:
+#         if char.isalnum():
+#             filtered_s.append(char.lower())
+
+#     print(filtered_s)
+#     return filtered_s == filtered_s[::-1]
+
+
 solution = Solution()
 print(solution.is_palindrome("A man, a plan, a canal: Panama"))  # output: True
 print(solution.is_palindrome("race a car"))  # output: False

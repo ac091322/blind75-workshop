@@ -72,6 +72,7 @@ def max_score(str):
     return max_score
 
 
+print(max_score("00010000"))  # output: 6
 print(max_score("011101"))  # output: 5
 print(max_score("00111"))  # output: 5
 print(max_score("1111"))  # output: 3

@@ -33,31 +33,46 @@ Space complexity: O(n)
 */
 
 
+// function isPalindrome(s) {
+//   // let filteredS = "";
+//   let filteredS = [];  // much more efficient in js
+
+//   for (let char of s) {
+//     if ((char >= "a" && char <= "z") ||
+//       (char >= "A" && char <= "Z") ||
+//       (char >= "0" && char <= "9")) {
+//       // filteredS += char.toLowerCase();
+//       filteredS.push(char.toLowerCase());
+//     }
+//   }
+
+//   // let reversedS = filteredS.split("").reverse().join("");
+//   // return filteredS === reversedS;
+//   return filteredS.join("") === filteredS.reverse().join("");
+//   // return filteredS === filteredS.reverse();  // this does not work and will always return true because .reverse() reverses the array in place, and so it's comparing the same array to itself since it's the same reference in memory
+// }
+
+
 function isPalindrome(s) {
-  // let filteredS = "";
-  let filteredS = [];  // much more efficient in js
+  let filteredArr = [];
 
-  for (let char of s) {
-    if ((char >= "a" && char <= "z") ||
-      (char >= "A" && char <= "Z") ||
-      (char >= "0" && char <= "9")) {
-      // filteredS += char.toLowerCase();
-      filteredS.push(char.toLowerCase());
-    }
-  }
+  for (let char of s) if (isAlphaNumeric(char)) filteredArr.push(char.toLowerCase());
 
-  // let reversedS = filteredS.split("").reverse().join("");
-  // return filteredS === reversedS;
-  return filteredS.join("") === filteredS.reverse().join("");
+  // this does not work in js because it's joining the same array, both filteredArr and reversedArr will reverse the same reversed array
+  // let reversedArr = filteredArr.reverse()
+  // return filteredArr.join("") === reversedArr.join("")
 
-  // return filteredS === filteredS.reverse();  // this does not work and will always return true because .reverse() reverses the array in place, and so it's comparing the same array to itself since it's the same reference in memory
+  let reversedArr = [...filteredArr].reverse();
+  return filteredArr.join("") === reversedArr.join("");
+
 }
 
-// function isAlphaNumeric(char) {
-//   return "a" <= char && char <= "z" ||
-//     "A" <= char && char <= "Z" ||
-//     "0" <= char && char <= "9"
-// }
+
+function isAlphaNumeric(char) {
+  return "a" <= char && char <= "z" ||
+    "A" <= char && char <= "Z" ||
+    "0" <= char && char <= "9"
+}
 
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"))  // output: true
