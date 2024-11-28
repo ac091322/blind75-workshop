@@ -35,9 +35,7 @@ def letter_count(string):
             max_repeating_count = highest_char_count
             max_repeating_word = word
 
-    if max_repeating_count <= 1:
-        return -1
-    return max_repeating_word
+    return -1 if max_repeating_count <= 1 else max_repeating_word
 
 
 print(letter_count("Hello apple pie"))  # output: Hello

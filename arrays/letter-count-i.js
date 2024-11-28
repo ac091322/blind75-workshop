@@ -37,8 +37,7 @@ function letterCount(string) {
         }
     }
 
-    if (maxRepeatingCount <= 1) return -1
-    return maxRepeatingWord
+    return maxRepeatingCount <= 1 ? -1 : maxRepeatingWord
 }
 
 
