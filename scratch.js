@@ -1,44 +1,40 @@
 /*
-Letter Count I
-Easy
-
-Have the function LetterCountI (str) take the str parameter being passed and return the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces.
-
-Examples
-Input: "Hello apple pie"
-Output: Hello
-
-Input: "No words"
-Output: -1
+Array Challenge
+have the tunction Arravchallence arr take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. 5, 3, 3, 3, 1) should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode.
 
 
-Time complexity: O(n * m) where n is the length of the string input and m is the maximum of any word in the string
-Space complexity: O(n + m) where n is the length of the string input and m is the maximum of any word in the string
+Examples:
+Input: [1, 2, 31]
+Output: 0
+
+Input: [4, 4, 4, 6, 2]
+Outout: 1
 */
 
 
-function letterCount(string) {
-    let wordList = string.split(" ")
-    let maxRepeatingWord = ""
-    let maxRepeatingCount = 0
+function arrayChallenge(arr) {
+    let mode = null
+    let modeCounter = {}
+    let maxModeCount = 0
+    let sum = 0
 
-    for (let word of wordList) {
-        let charCounter = {}
+    for (let num of arr) {
+        sum += num
+        modeCounter[num] ? modeCounter[num] += 1 : modeCounter[num] = 1
+    }
 
-        for (let char of word.toLowerCase()) {
-            charCounter[char] ? charCounter[char] += 1 : charCounter[char] = 1
-
-            let highestCharCount = Math.max(...Object.values(charCounter))
-            if (highestCharCount > maxRepeatingCount) {
-                maxRepeatingCount = highestCharCount
-                maxRepeatingWord = word
-            }
+    for (let num in modeCounter) {
+        if (modeCounter[num] > maxModeCount) {
+            maxModeCount = modeCounter[num]
+            mode = Number(num)
         }
     }
 
-    return maxRepeatingCount <= 1 ? -1 : maxRepeatingWord
+    let mean = sum / arr.length
+
+    return mean === mode ? 1 : 0
 }
 
 
-console.log(letterCount("Hello apple pie"));  // output: Hello
-console.log(letterCount("No words"));  // output: -1
+console.log(arrayChallenge([1, 2, 3]));  // output: 0
+console.log(arrayChallenge([4, 4, 4, 6, 2]));  // output: 1
