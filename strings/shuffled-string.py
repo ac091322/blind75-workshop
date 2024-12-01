@@ -50,7 +50,8 @@ All values of indices are unique.
 
 
 def restoreString(s: str, indices: list[int]) -> str:
-    result = [0] * len(s)
+    # result = [0] * len(s)
+    result = ["" for _ in range(len(s))]
 
     for i, char in enumerate(s):
         index = indices[i]
@@ -58,6 +59,7 @@ def restoreString(s: str, indices: list[int]) -> str:
         # result[4] = "c"
         # result[5] = "o"
         # result = [0, 0, 0, 0, "c", "o", 0, 0]
+        # result[index] = char
         result[index] = char
 
     return "".join(result)

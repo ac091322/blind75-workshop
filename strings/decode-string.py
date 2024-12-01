@@ -39,19 +39,31 @@ def decode_string(s: str) -> str:
 
     for char in s:
         if char.isdigit():
-            # build the number (for cases like "10[a]")
+            # build the number for cases like "10[a]" or "100[a]""
+            # because starting num is 0, will always get 0 + the actual num for the current num
             current_num = current_num * 10 + int(char)
+
         elif char == "[":
             # push current number and string onto the stack
+            # intial stack with tuple value = [("", 3)]
             stack.append((current_str, current_num))
             current_str = ""  # reset current string
-            current_num = 0  # reset current number
+            current_num = 0  # reset current num
+
         elif char == "]":
             # pop the last number and string, repeat current_str
+            # intial stack = [("", 3)]
+            # prev_str = "", num = 3
             prev_str, num = stack.pop()
+            # current_str = "" + 3 * "a" = "aaa"
             current_str = prev_str + num * current_str
+
         else:
             # add current character to the current string
+            # after processing first character "a":
+            # current_num = 0
+            # current_str = "a"
+            # stack = [("", 3)]
             current_str += char
 
     return current_str
