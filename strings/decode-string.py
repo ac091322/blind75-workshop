@@ -37,9 +37,9 @@ Approach:
 3. create a variable hold the current number extracted from the input string (start from 0)
 4. iterate through the input string:
   4.1. if char is a digit, account for numbers like 10 or 100 by multiplying by 10, then replace current num with char after converting to integer
-  4.2. if char is a char from a to z, append to current string
+  4.2. if char is a char from a to z, concat with currenct string
   4.3. if char is the opening square bracket, append the stack with the current string and current num as a tuple and reset the current string and current num
-  4.4.  if char is the closing square bracket, pop from the stack, destructure the values, and append them to the current string
+  4.4.  if char is the closing square bracket, pop from the stack, destructure the values, and set the current string to the previous string + current string * the previous number
 5. return the current string
 
 Time complexity: O(n) where n represents the number of characters in the string
@@ -55,6 +55,7 @@ def decode_string(s: str) -> str:
     for char in s:
         if char.isdigit():
             # build the number for cases like "10[a]" or "100[a]""
+            # for example 0 * 10 + 1 for 1, then 1 * 10 + 0 for 10, and 10 * 10 + 0 for 100
             # because starting num is 0, will always get 0 + the actual num for the current num
             current_num = current_num * 10 + int(char)
 
@@ -69,9 +70,9 @@ def decode_string(s: str) -> str:
             # pop the last number and string, repeat current_str
             # intial stack = [("", 3)]
             # prev_str = "", num = 3
-            prev_str, num = stack.pop()  # tuple unpacking
+            prev_str, prev_num = stack.pop()  # tuple unpacking
             # current_str = "" + 3 * "a" = "aaa"
-            current_str = prev_str + num * current_str
+            current_str = prev_str + prev_num * current_str
 
         else:
             # add current character to the current string
