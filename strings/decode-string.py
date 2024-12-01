@@ -29,6 +29,21 @@ Constraints:
 s consists of lowercase English letters, digits, and square brackets '[]'.
 s is guaranteed to be a valid input.
 All the integers in s are in the range [1, 300].
+
+
+Approach:
+1. create a variable to be the stack that will hold the current string and current num (initialize to empty stack)
+2. create a variable to hold the current string extracted from the input string (initialize to empty string)
+3. create a variable hold the current number extracted from the input string (start from 0)
+4. iterate through the input string:
+  4.1. if char is a digit, account for numbers like 10 or 100 by multiplying by 10, then replace current num with char after converting to integer
+  4.2. if char is a char from a to z, append to current string
+  4.3. if char is the opening square bracket, append the stack with the current string and current num as a tuple and reset the current string and current num
+  4.4.  if char is the closing square bracket, pop from the stack, destructure the values, and append them to the current string
+5. return the current string
+
+Time complexity: O(n) where n represents the number of characters in the string
+Space complexity: O(n) where n represents the number of characters in the string
 """
 
 
@@ -54,7 +69,7 @@ def decode_string(s: str) -> str:
             # pop the last number and string, repeat current_str
             # intial stack = [("", 3)]
             # prev_str = "", num = 3
-            prev_str, num = stack.pop()
+            prev_str, num = stack.pop()  # tuple unpacking
             # current_str = "" + 3 * "a" = "aaa"
             current_str = prev_str + num * current_str
 
