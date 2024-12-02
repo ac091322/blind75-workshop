@@ -62,6 +62,9 @@ function maxScore(str) {
     // the number of 1s is always one less than the number of pieces the string split into
     let rightOnes = str.split("1").length - 1;
 
+    // let array = str.split("")
+    // let rightOnes = array.filter(ele => ele === "1").length
+
     let maxScore = 0;
 
     for (let i = 0; i < str.length - 1; i += 1) {
@@ -82,4 +85,4 @@ console.log(maxScore("011101"));  // output: 5
 console.log(maxScore("00111"));  // output: 5
 console.log(maxScore("1111"));  // output: 3
 console.log(maxScore("00000"));  // output: 4
-console.log(maxScore("0101010101"));  // output:
+console.log(maxScore("0101010101"));  // output: 6
