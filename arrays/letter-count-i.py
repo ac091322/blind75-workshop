@@ -12,8 +12,8 @@ Input: "No words"
 Output: -1
 
 
-Time complexity: O(n * m) where n is the length of the string input and m is the maximum of any word in the string
-Space complexity: O(n + m) where n is the length of the string input and m is the maximum of any word in the string
+Time complexity: O(n) where n is the length of the string input
+Space complexity: O(n) where n is the length of the string input
 """
 
 

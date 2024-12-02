@@ -10,6 +10,10 @@ Output: 0
 
 Input: [4, 4, 4, 6, 2]
 Outout: 1
+
+
+Time complexity: O(n)
+Space complexity: O(n)
 """
 
 
