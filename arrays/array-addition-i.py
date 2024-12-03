@@ -80,8 +80,7 @@ def array_addition(list_of_nums):
     largest_num = max(list_of_nums)
     list_of_nums.remove(largest_num)
 
-    # r represents the size of the combination (not the index)
-    # r represents the number of elements to pick for the current combination
+    # r represents the size of the combination (not the index), or the number of elements to pick for the current combination
     # iterating from 1 to len(list_of_nums) + 1 means the the combinations will range from size 1 to size 5, because for range(1, 5) 1 is inclusive, 5 is exclusive, the actual maximum r value is r = 4
     for r in range(1, len(list_of_nums) + 1, 1):
         # order does not matter, and there are no repetitions of elements
