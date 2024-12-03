@@ -37,7 +37,7 @@ function stringCompare(s, t) {
 
     for (let char of s) {
         if (char === "#") {
-            if (stackS) stackS.pop();
+            stackS.pop();
         } else {
             stackS.push(char);
         }
@@ -45,7 +45,7 @@ function stringCompare(s, t) {
 
     for (let char of t) {
         if (char === "#") {
-            if (stackT) stackT.pop();
+            stackT.pop();
         } else {
             stackT.push(char);
         }
@@ -53,6 +53,7 @@ function stringCompare(s, t) {
 
     return stackS.join("") === stackT.join("");
 }
+
 
 
 console.log(stringCompare("ab#c", "ad#c"));;  // output: true

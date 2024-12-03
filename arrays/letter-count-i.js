@@ -43,3 +43,4 @@ function letterCount(string) {
 
 console.log(letterCount("Hello apple pie"));  // output: Hello
 console.log(letterCount("No words"));  // output: -1
+console.log(letterCount("Check this word out: feeccwwllcc"));  // output: feeccwwllcc

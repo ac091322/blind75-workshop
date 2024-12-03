@@ -32,7 +32,9 @@ def letter_count(string):
         highest_char_count = max(char_count.values())
 
         if highest_char_count > max_repeating_count:
-            max_repeating_count = highest_char_count
+            max_repeating_count = (
+                highest_char_count  # store the reference point for future comparisons
+            )
             max_repeating_word = word
 
     return -1 if max_repeating_count <= 1 else max_repeating_word
@@ -40,3 +42,4 @@ def letter_count(string):
 
 print(letter_count("Hello apple pie"))  # output: Hello
 print(letter_count("No words"))  # output: -1
+print(letter_count("Check this word out: feeccwwllcc"))  # output: feeccwwllcc
