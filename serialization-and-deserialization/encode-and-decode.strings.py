@@ -62,8 +62,8 @@ found length: 3 from s[18:19] = 3
 extracted string: you from s[20:23]
 updated i: 23, current result: ['neet', 'code', 'love', 'you']
 
-Time complexity: O(m) where m is the sum of lengths of all the strings and n is the number of strings
-Space complexity: O(1)
+Time complexity: O(n) where n is the number of strings
+Space complexity: O(n)
 """
 
 
