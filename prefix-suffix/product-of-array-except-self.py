@@ -61,12 +61,8 @@ def product_of_array(nums):
         # prefix becomes [1, 1, 2, 8]
 
     # compute suffix products
-    for i in range(
-        # start at len(nums) - 2 because suffix[len(nums) - 1] is always 1
-        len(nums) - 2,
-        -1,
-        -1,
-    ):
+    # start at len(nums) - 2 because suffix[len(nums) - 1] is always 1
+    for i in range(len(nums) - 2, -1, -1):
         suffix[i] = suffix[i + 1] * nums[i + 1]
         # suffix becomes [48, 24, 6, 1]
 

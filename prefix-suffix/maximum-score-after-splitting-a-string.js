@@ -51,7 +51,7 @@ left part: 0111, left zeros: 1, right part: 01, right ones: 1, total: 2
 left part: 01110, left zeros: 2, right part: 1, right ones: 1, total: 3
 
 Time complexity: O(n) where n is the length of the string
-Space complexity: O(1) only uses left zeroes, right ones, and max score to store the variables, no new variables are created and space used does not depend on the size of the input string
+Space complexity: O(n) where the list could contain n elements after splitting
 */
 
 

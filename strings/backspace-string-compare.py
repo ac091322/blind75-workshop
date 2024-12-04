@@ -35,15 +35,18 @@ def string_compare(s, t):
     stack_s = []
     stack_t = []
 
+    # cannot use .zip(s, t) here, must iterate through each string separately
     for char in s:
         if char == "#":
-            stack_s.pop()
+            if stack_s:
+                stack_s.pop()
         else:
             stack_s.append(char)
 
     for char in t:
         if char == "#":
-            stack_t.pop()
+            if stack_t:
+                stack_t.pop()
         else:
             stack_t.append(char)
 

@@ -19,7 +19,6 @@ Input: s = "abc", indices = [0,1,2]
 Output: "abc"
 Explanation: After shuffling, each character remains in its position.
 
-
 Constraints:
 s.length == indices.length == n
 1 <= n <= 100

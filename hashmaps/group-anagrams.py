@@ -59,7 +59,6 @@ def group_anagrams(strs):
     for substring in strs:
         # sort the string so all anagrams become the same string, and will be the same key in the hashmap
         sorted_str = "".join(sorted(substring))
-
         # if the sorted string is not in the hashmap, that means it's the first time it's been encountered
         if sorted_str not in hashmap:
             hashmap[sorted_str] = [substring]

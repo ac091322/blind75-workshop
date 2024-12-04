@@ -19,7 +19,6 @@ Input: s = "abc", indices = [0,1,2]
 Output: "abc"
 Explanation: After shuffling, each character remains in its position.
 
-
 Constraints:
 s.length == indices.length == n
 1 <= n <= 100
@@ -53,6 +52,7 @@ def restoreString(s: str, indices: list[int]) -> str:
     # result = [0] * len(s)
     result = ["" for _ in range(len(s))]
 
+    # for char, index in zip(s, indices):
     for i, char in enumerate(s):
         index = indices[i]
         # indices[index] are the values in the indices list
