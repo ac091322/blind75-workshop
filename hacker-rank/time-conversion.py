@@ -13,7 +13,7 @@ Note:
 
 
 def timeConversion(s):
-    period = s[-2:]  # slice the last two characters
+    period = s[-2::]  # slice the last two characters
     hour, minute, second = map(int, s[:-2].split(":"))  # apply int to each element
 
     if period == "AM" or period == "am":
