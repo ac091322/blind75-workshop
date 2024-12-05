@@ -1,4 +1,8 @@
 """
+JP Morgan Chase
+Hacker Rank Assessment
+Question 1
+
 An e-commerce site has a series of advertisements to display. Links to the ads are stored in a data structure, and they are displayed or not based on the value at a bit position in a number. The sequence of ads being displayed at this time can be represented as a binary value, where 1 means the ad is displayed, and 0 means it is hidden. The ads should rotate, so on the next page load, ads that are displayed now are hidden, and vice versa.
 
 Given a base 10 integer representing the current display state of all ads, determine its binary representation. Starting from the position of its highest order 1 bit, negate that bit and all lower order bits from 0 to 1 or from 1 to 0. Return the base 10 representation of the result.
@@ -25,9 +29,23 @@ Approach:
 I: a base 10 number (or regular, everyday number)
 O: a base 10 number (or regular, everyday number)
 
-1. convert the input base 10 number to binary number and remove the "0b" prefix
-2
+0. optional: check the max bits of the current system and use to create leading 0s
+1. convert the input base 10 number to binary string
+    1.1. remove the "0b" prefix
+    1.2. add leading 0s based on the system bits
+2. find the first appearance of 1 in the string and get its index
+3. flip all bits starting from the first appearance of 1
+4. combine the original part with the 0s before the first 1 with the flipped bits
+5. convert the binary string back to a base 10 integer
+6. return the base 10 integer
 """
+
+# this method causes unintended results
+# def changeAds(base10):
+#     # the 1s and 0s in negative numbers are automatically flipped from the positive number
+#     fliped_binary = bin(-base10)[3::]
+#     return int(fliped_binary, 2)
+
 
 import sys
 
@@ -41,6 +59,7 @@ def changeAds(base10):
     # convert the number to binary without the "0b" prefix
     # py automatically removes all leading 0s unless specifically assigned
     # binary_str = bin(base10)[2::]  # this will have no leading 0s
+    # .zfill() will only add 0s to the left based on given length
     binary_str = bin(base10)[2:].zfill(system_bit_length)
     # print("binary_str:", binary_str)
 
@@ -51,39 +70,40 @@ def changeAds(base10):
 
     # flip all bits starting from the highest 1 bit
     flipped_bits = "".join(
-        [
-            print("bit:", bit) or ("0" if bit == "1" else "1")
-            for bit in binary_str[first_1_index::]
-        ]
+        print("bit:", bit) or "0" if bit == "1" else "1"
+        for bit in binary_str[first_1_index::]
     )
     # in the list comprehension, print("bit:", bit) will always print the bit, but it returns None, and None is falsey, so returns the second expression (right of the "or")
     # print("flipped_bits:", flipped_bits)
 
     # combine the original part, the 0s before the first 1 bit, with the flipped bits
     # this part is not really
-    result_binary = binary_str[:first_1_index] + flipped_bits
+    combined_binary_str = binary_str[:first_1_index] + flipped_bits
     # print("result_binary:", result_binary)
 
     # convert the binary string back to a base 10 integer
-    base10_num = int(result_binary, 2)
+    base10_num = int(combined_binary_str, 2)
 
     return base10_num
 
 
 print(changeAds(50))  # output: 13
-# 50 (base 10) in binary is 110010 (base 2). Negate each bit in the sequence to get 001101 (base 2) = 13 (base 10).
+# 50 (base 10) in binary is 110010 (base 2). Negate each bit in the sequence to get 001101 (base 2) = 13 (base 10)
 
 print(changeAds(30))  # output: 1
-# 30 (base 10) in binary is 11110 (base 2). Negate each bit in the sequence to get 00001 (base 2) = 1 (base 10).
+# 30 (base 10) in binary is 11110 (base 2). Negate each bit in the sequence to get 00001 (base 2) = 1 (base 10)
 
 print(changeAds(100))  # output: 27
-# 100 (base 10) in binary is 1100100 (base 2). Negate each bit in the sequence to get 0011011 (base 2) = 27 (base 10).
+# 100 (base 10) in binary is 1100100 (base 2). Negate each bit in the sequence to get 0011011 (base 2) = 27 (base 10)
 
 print(changeAds(1))  # output: 0
-# 1 (base 10) in binary is 1 (base 2). Negate the bit to get 0 (base 2) = 0 (base 10).
+# 1 (base 10) in binary is 1 (base 2). Negate the bit to get 0 (base 2) = 0 (base 10)
 
 print(changeAds(2))  # output: 1
-# 2 (base 10) in binary is 10 (base 2). Negate the bit to get 01 (base 2) = 1 (base 10).
+# 2 (base 10) in binary is 10 (base 2). Negate the bit to get 01 (base 2) = 1 (base 10)
 
 print(changeAds(1024))  # output: 1023
-# 1024 (base 10) in binary is 10000000000 (base 2). Negate each bit in the sequence starting from the highest 1 bit to get 01111111111 (base 2) = 1023 (base 10).
+# 1024 (base 10) in binary is 10000000000 (base 2). Negate each bit in the sequence starting from the highest 1 bit to get 01111111111 (base 2) = 1023 (base 10)
+
+print(changeAds(10))  # output: 5
+# 10 (base 10) in binary is 1010 (base 2). Negate each bit starting from the highest 1 bit to get 0000 (base 2) = 0 (base 10)
