@@ -51,4 +51,4 @@ def trapping_rain_water(height):
 
 
 print(trapping_rain_water([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))  # output: 6
-# print(trapping_rain_water([4, 2, 0, 3, 2, 5]))  # output: 9
+print(trapping_rain_water([4, 2, 0, 3, 2, 5]))  # output: 9
