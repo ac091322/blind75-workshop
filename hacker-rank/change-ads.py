@@ -25,7 +25,7 @@ Constraints:
     0 <= base10 <= 10^5
 
 
-Approach:
+Approach: bitwise operations
 I: a base 10 number (or regular, everyday number)
 O: a base 10 number (or regular, everyday number)
 

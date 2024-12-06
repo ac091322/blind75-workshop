@@ -88,7 +88,7 @@ Row 4 = [74, 78]
 The set of qualifying numbers in the inclusive range between n[3] = 74 and m[3] = 78 is {74, 75, 76, 77, 78}. This gives us c[3] = 5.
 
 
-Approach:
+Approach: brute force
 I: 2D list
 O: individual numbers representing the number of non-repeating numbers
 
