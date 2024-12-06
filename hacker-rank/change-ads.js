@@ -38,6 +38,9 @@ O: a base 10 number (or regular, everyday number)
 4. combine the original part with the 0s before the first 1 with the flipped bits
 5. convert the binary string back to a base 10 integer
 6. return the base 10 integer
+
+Time complexity: O(n) where n is the number of bits in the base10 number
+Space complexity: O(n) where n is the number of bits in the base10 number
 */
 
 function changeAds(base10) {
@@ -58,9 +61,7 @@ function changeAds(base10) {
     }
 
     const combinedBinStr = binaryStr.slice(0, first1Index) + flippedBits;
-
     const base10Num = parseInt(combinedBinStr, 2);
-
     return base10Num;
 }
 

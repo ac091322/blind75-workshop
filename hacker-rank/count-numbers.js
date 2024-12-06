@@ -86,20 +86,60 @@ The set of qualifying numbers in the inclusive range between n[3] = 57 and m[3] 
 
 Row 4 = [74, 78]
 The set of qualifying numbers in the inclusive range between n[3] = 74 and m[3] = 78 is {74, 75, 76, 77, 78}. This gives us c[3] = 5.
+
+
+Approach:
+I: 2D list
+O: individual numbers representing the number of non-repeating numbers
+
+1. create a helper function to check if a number has repeated digits:
+    1.1. convert the number to a string representation
+    1.2. find the length of the number string
+    1.3. create a set with the number string
+    1.4. compare the length of the number string to the set, if they are not equal, the number has repreated digits
+2. create a results variable to store the no repeated digit count for each subset in the input list
+3. iterate through 2D list:
+    3.1. create a counter in the scope of the outer for loop to keep track of the no repeated count
+    3.2. iterate through the nested lists
+        3.2.1. set the range from the first number (inclusive) in the nested list to the second number (inclusive)
+        3.2.2. call the helper function to check if each number has repeated digits
+        3.2.3. if the number does not, increase the no repeat count by 1
+    3.3. store the no repreated count in the results
+4. iterate through the results list to print each result
+
+Time complexity (helper function): O(n) where n is the number of digits in num
+Space complexity (helper function): O(n) where n is the number of digits in num
+Time complexity (main function): O(n^2) where n is the size of the largest range [start, end] in any subset
+Space complexity (main function): O(n) where n is the number of subsets in arr
 */
 
 
 function hasRepeatedDigits(num) {
-    num_to_str = str(num)
-    return len(num_to_str) != len(set(num_to_str))
+    let numStr = num.toString();
+    let numSet = new Set(numStr);
+    return numStr.length != numSet.size;
 }
 
 function countNumbers(arr) {
+    let result = [];
 
+    for (let subset of arr) {
+        let noRepeatCount = 0;
+
+        for (let i = subset[0]; i <= subset[1]; i += 1) {
+            if (!hasRepeatedDigits(i)) noRepeatCount += 1;
+        }
+
+        result.push(noRepeatCount);
+    }
+
+    for (let count of result) {
+        console.log(count);
+    }
 }
 
 
 console.log(countNumbers([[1, 20], [9, 19]]));  // output: 19, 10
 console.log(countNumbers([[7, 8], [52, 80], [34, 84], [57, 64], [74, 78]]));  // output: 2, 26, 47, 8, 4
 console.log(countNumbers([[5, 15], [10, 30], [100, 110]]));  // output: 10, 19, 8
-console.log(countNumbers([[50, 60], [100, 120], [200, 220]]));  // output: 9, 9, 15
+console.log(countNumbers([[50, 60], [100, 120], [200, 220]]));  // output: 10, 9, 16
