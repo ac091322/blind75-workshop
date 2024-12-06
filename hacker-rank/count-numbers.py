@@ -115,11 +115,12 @@ Space complexity (main function): O(n) where n is the number of subsets in arr
 
 
 def has_repeated_digits(num):
-    num_to_str = str(num)
+    num_str = str(num)
     # if the length of the string and the length of the set are not equal, it means the number has repeating digits, and the function returns true
     # if number is 12, set is {'1', '2'}, then the length of "12" is equal to length of the set
     # if number is 11, set is {'1'}, then length of "11" is not equal to length of the set
-    return len(num_to_str) != len(set(num_to_str))
+    num_set = set(num_str)
+    return len(num_str) != len(num_set)
 
 
 def countNumbers(arr):
@@ -134,8 +135,7 @@ def countNumbers(arr):
                 no_repeat_count += 1
         results.append(no_repeat_count)
 
-    for result in results:
-        print(result)
+    [print(count) for count in results]
 
 
 print(countNumbers([[1, 20], [9, 19]]))  # output: 19, 10

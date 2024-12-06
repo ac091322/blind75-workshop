@@ -133,9 +133,7 @@ function countNumbers(arr) {
         result.push(noRepeatCount);
     }
 
-    for (let count of result) {
-        console.log(count);
-    }
+    for (let count of result) console.log(count);
 }
 
 
