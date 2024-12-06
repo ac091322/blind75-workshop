@@ -109,7 +109,7 @@ O: individual numbers representing the number of non-repeating numbers
 
 Time complexity (helper function): O(n) where n is the number of digits in num
 Space complexity (helper function): O(n) where n is the number of digits in num
-Time complexity (main function): O(n^2) where n is the size of the largest range [start, end] in any subset
+Time complexity (main function): O(n log n) where n is the size of the largest range [start, end] in any subset
 Space complexity (main function): O(n) where n is the number of subsets in arr
 """
 
