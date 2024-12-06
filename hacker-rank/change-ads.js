@@ -68,21 +68,15 @@ function changeAds(base10) {
 
 console.log(changeAds(50));  // output: 13
 // 50(base 10) in binary is 110010(base 2).Negate each bit in the sequence to get 001101(base 2) = 13(base 10)
-
 console.log(changeAds(30));  // output: 1
 // 30(base 10) in binary is 11110(base 2).Negate each bit in the sequence to get 00001(base 2) = 1(base 10)
-
 console.log(changeAds(100));  // output: 27
 // 100(base 10) in binary is 1100100(base 2).Negate each bit in the sequence to get 0011011(base 2) = 27(base 10)
-
 console.log(changeAds(1));  // output: 0
 // 1(base 10) in binary is 1(base 2).Negate the bit to get 0(base 2) = 0(base 10)
-
 console.log(changeAds(2));  // output: 1
 // 2(base 10) in binary is 10(base 2).Negate the bit to get 01(base 2) = 1(base 10)
-
 console.log(changeAds(1024));  // output: 1023
 // 1024(base 10) in binary is 10000000000(base 2).Negate each bit in the sequence starting from the highest 1 bit to get 01111111111(base 2) = 1023(base 10)
-
 console.log(changeAds(10));  // output: 5
 // 10 (base 10) in binary is 1010 (base 2). Negate each bit starting from the highest 1 bit to get 0000 (base 2) = 0 (base 10)

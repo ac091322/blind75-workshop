@@ -22,7 +22,7 @@ Constraints:
 strs[i] contains only UTF-8 characters
 
 
-Approach: hashmap
+Approach: length-prefix encoding
 1. encode the string:
   1.1. encode the strings in the input list
   1.2. use length + a delimiter to encode the string --> "4#neet"
