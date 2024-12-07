@@ -50,6 +50,7 @@ Approach: two pointer
     4.4.3. if the next right number is the same as the previous right number, skip the number
 return result list
 
+
 Time complexity: O(n log n) + O(n^2) --> O(n^2)
 Space complexity: O(1) or O(n)
 """

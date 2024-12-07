@@ -45,8 +45,6 @@ find the product of everything that comes after this index:
 
 Time complexity: O(n)
 Space complexity: O(n)
-
-Challenge: solve in O(1) time
 */
 
 

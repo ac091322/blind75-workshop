@@ -65,6 +65,7 @@ def max_profit(prices) -> int:
             profit = prices[later_day] - prices[cur_day]
             max_profit = max(max_profit, profit)
         else:
+            # if the price of the current day is greater than or equal to the later day, then set the current day to the later day
             cur_day = later_day
 
         later_day += 1
@@ -80,6 +81,8 @@ def max_profit(prices) -> int:
     # iterate one time, while updating the min buy price as it goes
     for sell_price in prices:
         max_profit = max(max_profit, sell_price - min_buy_price)
+
+        # update the min buy price when a lower one is found
         min_buy_price = min(min_buy_price, sell_price)
 
     return max_profit

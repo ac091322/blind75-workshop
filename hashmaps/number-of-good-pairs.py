@@ -61,29 +61,3 @@ def find_good_pairs(lst):
 print(find_good_pairs([1, 2, 3, 1, 1, 3]))  # output: 4
 print(find_good_pairs([1, 2, 3]))  # output: 0
 print(find_good_pairs([1, 1, 1, 1]))  # output: 6
-
-
-# def find_good_pairs(lst):
-#     tuple_list = []  # list to store tuples of (value, index)
-#     pair_map = {}  # hashmap to keep track of indices for each number
-#     good_pairs = []  # list to store the good pairs found
-
-#     for i, num in enumerate(lst):  # populate tuple_list with (value, index) pairs
-#         tuple_list.append((num, i))
-
-#     for pair in tuple_list:
-#         value, index = pair  # unpack the tuple
-
-#         if value in pair_map:  # check if the value is already in the pair_map
-#             # print("value", value)
-
-#             # retrieve the previously stored indices and form good pairs
-#             for prev_index in pair_map[value]:
-#                 good_pairs.append((prev_index, index))
-
-#         else:  # if the value is not found in pair_map, initialize an empty list for this value
-#             pair_map[value] = []
-
-#         pair_map[value].append(index)
-
-#     return len(good_pairs) if good_pairs else 0

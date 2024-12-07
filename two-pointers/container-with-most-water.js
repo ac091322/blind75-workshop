@@ -81,6 +81,7 @@ L       R   --> (4 - 0) * 1 = 4
   3.5. if left/rigth pointers are of the same height, decrement either one (the right pointer)
 4. return the max area seen so far
 
+
 Time complexity: O(n)
 Space complexity: O(1)
 */

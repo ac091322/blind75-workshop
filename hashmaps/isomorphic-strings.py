@@ -73,21 +73,6 @@ def is_isomorphic(s, t):
     return True
 
 
-# def is_isomorphic(s, t):
-#     x = {}
-
-#     for i in range(len(s)):
-#         if s[i] in x:
-#             if x[s[i]] != t[i]:
-#                 return False
-#         elif t.index(t[i]) < i:
-#             return False
-#         else:
-#             x[s[i]] = t[i]
-
-#     return True
-
-
 print(is_isomorphic("egg", "add"))  # output: True
 print(is_isomorphic("foo", "bar"))  # output: False
 print(is_isomorphic("paper", "title"))  # output: True

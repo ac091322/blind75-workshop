@@ -53,35 +53,33 @@ class Solution:
         return "a" <= char <= "z" or "A" <= char <= "Z" or "0" <= char <= "9"
 
 
-# def is_palindrome(s):
-#     filtered_s = "".join(char.lower() for char in s if char.isalnum())
-#     print(filtered_s)
-#     return filtered_s == filtered_s[::-1]
+def is_palindrome(s):
+    filtered_s = "".join(char.lower() for char in s if char.isalnum())
+    return filtered_s == filtered_s[::-1]
 
 
-# def is_palindrome(s):
-#     filtered_S = ""
+def is_palindrome(s):
+    filtered_S = ""
 
-#     for char in s:
-#         if (
-#             ord("a") <= ord(char) <= ord("z")
-#             or ord("A") <= ord(char) <= ord("Z")
-#             or ord("0") <= ord(char) <= ord("9")
-#         ):
-#             filtered_S += char.lower()
+    for char in s:
+        if (
+            ord("a") <= ord(char) <= ord("z")
+            or ord("A") <= ord(char) <= ord("Z")
+            or ord("0") <= ord(char) <= ord("9")
+        ):
+            filtered_S += char.lower()
 
-#     return filtered_S == filtered_S[::-1]
+    return filtered_S == filtered_S[::-1]
 
 
-# def is_palindrome(s):
-#     filtered_s = []
+def is_palindrome(s):
+    filtered_s = []
 
-#     for char in s:
-#         if char.isalnum():
-#             filtered_s.append(char.lower())
+    for char in s:
+        if char.isalnum():
+            filtered_s.append(char.lower())
 
-#     print(filtered_s)
-#     return filtered_s == filtered_s[::-1]
+    return filtered_s == filtered_s[::-1]
 
 
 solution = Solution()

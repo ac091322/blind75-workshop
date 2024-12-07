@@ -42,53 +42,40 @@ Approach: hashmap
 4. do the same for t
 5. return true at the end
 
-
 Time complexity: O(n)
 Space complexity: 0(n)
 */
 
 
-// function isIsomorphic(s, t) {
-//   if (s.length !== t.length) return false
-
-//   const mapStoT = {}
-//   const mapTtoS = {}
-
-//   for (let i = 0; i < s.length; i += 1) {
-//     let charS = s[i]
-//     let charT = t[i]
-
-//     if (charS in mapStoT) {
-//       if (mapStoT[charS] !== charT) {
-//         return false
-//       }
-//     } else {
-//       mapStoT[charS] = charT  // first iteration: {e: a}
-//     }
-
-//     if (charT in mapTtoS) {
-//       if (mapTtoS[charT] !== charS) {
-//         return false
-//       }
-//     } else {
-//       mapTtoS[charT] = charS  // first iteration: {a: e}
-//     }
-//   }
-
-//   return true
-// }
-
 function isIsomorphic(s, t) {
-  const x = new Map()
+  if (s.length !== t.length) return false
 
-  for (let i = 0; i < s.length; i++) {
-    if (x.get(s[i]) == t[i]) continue;
-    if (x.has(s[i]) && x.get(s[i]) != t[i] || t.indexOf(t[i]) < i) return false
-    x.set(s[i], t[i])
+  const mapStoT = {}
+  const mapTtoS = {}
+
+  for (let i = 0; i < s.length; i += 1) {
+    let charS = s[i]
+    let charT = t[i]
+
+    if (charS in mapStoT) {
+      if (mapStoT[charS] !== charT) {
+        return false
+      }
+    } else {
+      mapStoT[charS] = charT  // first iteration: {e: a}
+    }
+
+    if (charT in mapTtoS) {
+      if (mapTtoS[charT] !== charS) {
+        return false
+      }
+    } else {
+      mapTtoS[charT] = charS  // first iteration: {a: e}
+    }
   }
 
-  return true;
-};
+  return true
+}
 
 
 console.log(isIsomorphic("egg", "add"));

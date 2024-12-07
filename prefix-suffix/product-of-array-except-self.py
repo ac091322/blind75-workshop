@@ -26,7 +26,6 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 
 Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
 
-
 Approach: prefix-suffix
 Input: [1,2,4,6]
 Output: [48,24,12,8]
@@ -43,10 +42,9 @@ find the product of everything that comes after this index:
 
 4. make 2 passes to create a prefix and suffix array and then use those two to calculate the product of the array except the num at that index
 
+
 Time complexity: O(n)
 Space complexity: O(n)
-
-Challenge: solve in O(1) time
 """
 
 
