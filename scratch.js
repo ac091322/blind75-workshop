@@ -1,5 +1,20 @@
 function lengthOfLongestSubstring(s) {
+    let charMap = {}
+    let result = 0
+    let leftP = 0
 
+    for (let rightP = 0; rightP < s.length; rightP += 1) {
+        let rightChar = s[rightP]
+
+        if (rightChar in charMap) {
+            leftP = Math.max(leftP, charMap[rightChar] + 1)
+        }
+
+        charMap[rightChar] = rightP
+        result = Math.max(result, rightP - leftP + 1)
+    }
+
+    return result
 }
 
 
