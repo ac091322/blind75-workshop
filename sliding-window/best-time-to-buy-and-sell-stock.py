@@ -42,6 +42,7 @@ Space complexity: O(1)
 
 
 # brute force O(n^2)
+# will exceed time limit on LeetCode
 def max_profit(prices) -> int:
     max_profit = 0
 
@@ -75,7 +76,7 @@ def max_profit(prices) -> int:
 
 # dynamic programming
 def max_profit(prices) -> int:
-    max_profit = 0
+    max_profit = float("-inf")
     min_buy_price = prices[0]
 
     # iterate one time, while updating the min buy price as it goes

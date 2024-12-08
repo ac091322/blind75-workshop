@@ -79,7 +79,7 @@ function maxProfit(prices) {
 
 // dynamic programming
 function maxProfit(prices) {
-    let maxProfit = 0;
+    let maxProfit = -Infinity;
     let minBuyPrice = prices[0];
 
     for (let sellPrice of prices) {
