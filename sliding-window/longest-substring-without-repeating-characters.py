@@ -33,11 +33,15 @@ I: string
 O: integer representing the length of the longest substring without repeating characters
 
 1. initialize an empty char set to keep track of duplicate characters
+    1.1. the difference between the left and right pointers (the indexes) + 1 is the length of the window (which will track the longest substring)
 2. set left pointer to 0
 3. create a result variable to store the longest substring count
 4. iterate using a right pointer starting from 0 to the length of the string:
-    4.1. if the charcter is in the char set, remove the character using the left pointer (the value at the left and right pointers will be the same) and increase the left pointer by 1
-    4.2. always add the character at the right pointer to the char set (because anytime a duplicate is found it will be removed from the char set by the left pointer)
+    4.1. use a while and check if a charracter is in the char set
+        4.1.1. remove the character at the current left pointer (starting at index 0)
+        4.1.2. move the left pointer up by 1
+        4.1.3. stay in the while loop until all duplicates are removed
+    4.2. always add the character at the right pointer to the char set (because anytime a duplicate is found it will be removed from the char set by the left pointer when it hits the while loop)
     4.3. update the result with the current longest length which will be the right pointer - the left pointer + 1
 5. return the count
 
@@ -49,16 +53,17 @@ Space complexity = O(m) where m is the total number of unique characters in the 
 # sliding window
 def length_of_longest_substring(s) -> int:
     char_set = set()
-    left_pointer = 0
-    result = 0
+    result = left_pointer = 0
 
     for right_pointer in range(0, len(s), 1):
-        # if char at right is in char set, then remove char at left from char set
+        # if char at right is in char set, then start removing characters with the left pointer until it finds and removes the character at the right pointer, which will then exit the while loop
+        # remove every char in the char set until the duplicate character is found, it doesn't matter if the first one matches or the middle one matches
         while s[right_pointer] in char_set:
             char_set.remove(s[left_pointer])
             left_pointer += 1
 
         # if char at right is not in char set, then add it
+        # once the duplicate char is removed from the set, it will be added right back once it exists the while loop
         char_set.add(s[right_pointer])
 
         # right pointer minus the left pointer + 1 to find the length in between
@@ -69,20 +74,20 @@ def length_of_longest_substring(s) -> int:
 
 # sliding window (optimal)
 def length_of_longest_substring(s) -> int:
+    # the char map will store the key-value pairs --> {char: index}
     char_map = {}
-    left_pointer = 0
-    result = 0
+    result = left_pointer = 0
 
     for right_pointer in range(0, len(s), 1):
         right_char = s[right_pointer]
 
+        # if this were a while loop, it would stay in the while loop until something causes it to break out before going down the code
         if right_char in char_map:
-            # if a duplicate is found, update the left pointer to the right of the last occurence of the right character
-            # when a duplicate is found, the index value stored in the hashmap at the right character is the one before
-            # when the second "a" is found, the value of the right char in the hashmap is 0
+            # if a duplicate is found, update the left pointer to the right of the last occurence of the right character + 1
             left_pointer = max(left_pointer, char_map[right_char] + 1)
 
         # store the index of the current character (right_char) in the hashmap so that the value of the right character corresponds to its most recent position (right_pointer)
+        # will always update the value in the char map with the latest index of the right pointer
         char_map[right_char] = right_pointer
         result = max(result, right_pointer - left_pointer + 1)
 
@@ -90,6 +95,8 @@ def length_of_longest_substring(s) -> int:
 
 
 print(length_of_longest_substring("abcabcbb"))  # output: 3
+print(length_of_longest_substring("abcbacbab"))  # output: 3
+print(length_of_longest_substring("abccacbab"))  # output: 3
 print(length_of_longest_substring("abcabcbbabcde"))  # output: 5
 print(length_of_longest_substring("bbbbb"))  # output: 1
 print(length_of_longest_substring("pwwkew"))  # output: 3
