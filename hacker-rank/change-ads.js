@@ -56,9 +56,7 @@ function changeAds(base10) {
     // console.log("first1Index:", first1Index)
 
     let flippedBits = "";
-    for (let i = first1Index; i < binaryStr.length; i += 1) {
-        flippedBits += binaryStr[i] === "1" ? "0" : "1";
-    }
+    for (let i = first1Index; i < binaryStr.length; i += 1) flippedBits += binaryStr[i] === "1" ? "0" : "1";
 
     const combinedBinStr = binaryStr.slice(0, first1Index) + flippedBits;
     const base10Num = parseInt(combinedBinStr, 2);

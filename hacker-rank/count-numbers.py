@@ -136,6 +136,8 @@ def countNumbers(arr):
         results.append(no_repeat_count)
 
     [print(count) for count in results]
+    # the generator expression will not print anything because it lazily evaluates the print(count) statement, meaning the code does not actually execute the print calls unless the generator is iterated over
+    # (print(count) for count in results)
 
 
 print(countNumbers([[1, 20], [9, 19]]))  # output: 19, 10
