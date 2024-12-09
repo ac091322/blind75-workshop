@@ -70,15 +70,15 @@ function lengthOfLongestSubstring(s) {
 
 // sliding window (optimal)
 function lengthOfLongestSubstring(s) {
-    let charMap = {};
+    let charMap = new Map();
     let [result, leftPointer] = [0, 0];
 
     for (let rightPointer = 0; rightPointer < s.length; rightPointer += 1) {
         let rightChar = s[rightPointer];
 
-        if (rightChar in charMap) leftPointer = Math.max(leftPointer, charMap[rightChar] + 1);
+        if (charMap.has(rightChar)) leftPointer = Math.max(leftPointer, charMap.get(rightChar) + 1);
 
-        charMap[rightChar] = rightPointer;
+        charMap.set(rightChar, rightPointer)
         result = Math.max(result, rightPointer - leftPointer + 1);
     }
 

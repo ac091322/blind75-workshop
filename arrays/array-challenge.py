@@ -21,14 +21,13 @@ def array_challenge(arr):
     mean = sum(arr) / len(arr)
     mode = None
     mode_counter = {}
-    max_mode_count = 0
+    max_num_count = 0
 
     for num in arr:
         mode_counter[num] = mode_counter.get(num, 0) + 1
 
-    for num in mode_counter:
-        if mode_counter[num] > max_mode_count:
-            max_mode_count = mode_counter[num]
+        if mode_counter[num] > max_num_count:
+            max_num_count = mode_counter[num]
             mode = num
 
     return 1 if mode == mean else 0
@@ -36,3 +35,4 @@ def array_challenge(arr):
 
 print(array_challenge([1, 2, 3]))  # output: 0
 print(array_challenge([4, 4, 4, 6, 2]))  # output: 1
+print(array_challenge([4, 4, 4, 4, 11, 6, 3, 9, 9]))  # output: 0

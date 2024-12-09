@@ -77,23 +77,21 @@ function characterReplacement(s, k) {
 // time complexity: O(n) where n is the length of the string
 // space complexity: O(m) where m is the total num ber of unique characters in the string
 function characterReplacement(s, k) {
-    let charCount = {};
-    let leftPointer = 0;
-    let maxFreqOfChar = 0;
-    let result = 0;
+    let charCounter = new Map();
+    let [leftPointer, maxCharFreq, result] = [0, 0, 0];
 
     for (let rightPointer = 0; rightPointer < s.length; rightPointer += 1) {
         let rightChar = s[rightPointer];
-        charCount[rightChar] ? charCount[rightChar] += 1 : charCount[rightChar] = 1;
-        maxFreqOfChar = Math.max(maxFreqOfChar, charCount[rightChar]);
+        charCounter.set(rightChar, (charCounter.get(rightChar) || 0) + 1);
+        maxCharFreq = Math.max(maxCharFreq, charCounter.get(rightChar));
 
-        while ((rightPointer - leftPointer + 1) - maxFreqOfChar > k) {
+        while ((rightPointer - leftPointer + 1) - maxCharFreq > k) {
             let leftChar = s[leftPointer];
-            charCount[leftChar] -= 1;
+            charCounter.set(leftChar, charCounter.get(leftChar) - 1)
             leftPointer += 1;
         }
 
-        result = Math.max(rightPointer - leftPointer + 1);
+        result = Math.max(result, rightPointer - leftPointer + 1);
     }
 
     return result;
@@ -103,4 +101,5 @@ function characterReplacement(s, k) {
 console.log(characterReplacement("ABAB", 2));  // output: 4
 console.log(characterReplacement("AABABBA", 1));  // output: 4
 console.log(characterReplacement("CAABCBABBA", 2));  // output: 6
+console.log(characterReplacement("CACABCCBABCCCBA", 2)); // output: 5
 console.log(characterReplacement("AABABBCCCBBZBBZZZBBZBA", 3));  // output: 7

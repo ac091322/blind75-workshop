@@ -16,7 +16,7 @@ function arrayChallenge(arr) {
     let sum = 0;
     let mode = null;
     let modeCounter = {};
-    let maxModeCount = 0;
+    let maxNumCount = 0;
 
     for (let i = 0; i < arr.length; i += 1) sum += arr[i];
     let mean = sum / arr.length;
@@ -25,8 +25,8 @@ function arrayChallenge(arr) {
     // num is put in modeFreq as the key, which is a string
 
     for (let num in modeCounter) {
-        if (modeCounter[num] > maxModeCount) {
-            maxModeCount = modeCounter[num];
+        if (modeCounter[num] > maxNumCount) {
+            maxNumCount = modeCounter[num];
             mode = Number(num);  // converts the key "num", which is a string, to a number
         }
     }
@@ -37,3 +37,4 @@ function arrayChallenge(arr) {
 
 console.log(arrayChallenge([1, 2, 3]));  // output: 0
 console.log(arrayChallenge([4, 4, 4, 6, 2]));  // output: 1
+console.log9(arrayChallenge([4, 4, 4, 4, 11, 6, 3, 9, 9]));  // output: 0

@@ -86,21 +86,22 @@ def character_replacement(s: str, k: int) -> int:
 # time complexity: O(n) where n is the length of the string
 # space complexity: O(m) where m is the total num ber of unique characters in the string
 def character_replacement(s: str, k: int) -> int:
-    char_count = {}
-    result = max_freq_of_char = left_pointer = 0
+    char_counter = {}
+    # the most frequent character will automatically become the target character
+    # if there is a tie in highest frequency count, it doesn't matter which character is selected as the target
+    result = max_char_freq = left_pointer = 0
 
     for right_pointer in range(0, len(s), 1):
         right_char = s[right_pointer]
-        char_count[right_char] = char_count.get(right_char, 0) + 1
-        max_freq_of_char = max(max_freq_of_char, char_count[right_char])
+        char_counter[right_char] = char_counter.get(right_char, 0) + 1
+        max_char_freq = max(max_char_freq, char_counter[right_char])
 
-        # always subtract the max frequency, not the value that was decremented in the counter
         # subtract the max frequency of any character count from the window size to get the number of non-target characters (the characters that are not the most frequent)
-        while (right_pointer - left_pointer + 1) - max_freq_of_char > k:
+        while (right_pointer - left_pointer + 1) - max_char_freq > k:
             left_char = s[left_pointer]
             # still need to decrease the count of the character in case another target character is found, which will increase the count by 1 again
             # it doesn't matter if the character at the left pointer is the target character, it is the character that is existing the window, so it must be decreased
-            char_count[left_char] -= 1
+            char_counter[left_char] -= 1
             left_pointer += 1
 
         result = max(result, right_pointer - left_pointer + 1)
@@ -111,4 +112,5 @@ def character_replacement(s: str, k: int) -> int:
 print(character_replacement("ABAB", 2))  # output: 4
 print(character_replacement("AABABBA", 1))  # output: 4
 print(character_replacement("CAABCBABBA", 2))  # output: 6
+print(character_replacement("CACABCCBABCCCBA", 2))  # output: 5
 print(character_replacement("AABABBCCCBBZBBZZZBBZBA", 3))  # output: 7
