@@ -27,15 +27,6 @@ Constraints:
 0 <= prices[i] <= 104
 
 
-Approach:
-I: list of prices
-O: integer representing profit made
-
-1. create a variable to keep track of the maximum profit
-2. iterate through the list of prices:
-    2.1.
-return the maximum profit
-
 Time complexity: O(n)
 Space complexity: O(1)
 """
