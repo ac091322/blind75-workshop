@@ -82,7 +82,7 @@ function lengthOfLongestSubstring(s) {
         result = Math.max(result, rightPointer - leftPointer + 1);
     }
 
-    return result; s
+    return result;
 }
 
 
