@@ -1,36 +1,18 @@
 // sliding window
 function lengthOfLongestSubstring(s) {
-    let charSet = new Set();
-    let [result, leftPointer] = [0, 0];
+    let charMap = new Map()
+    let [result, left] = [0, 0]
 
-    for (let rightPointer = 0; rightPointer < s.length; rightPointer += 1) {
-        while (charSet.has(s[rightPointer])) {
-            charSet.delete(s[leftPointer]);
-            leftPointer += 1;
+    for (let right = 0; right < s.length; right += 1) {
+        if (charMap.has(s[right])) {
+            left = Math.max(left, charMap.get(s[right]) + 1)
         }
 
-        charSet.add(s[rightPointer]);
-        result = Math.max(result, rightPointer - leftPointer + 1);
+        charMap.set(s[right], right)
+        result = Math.max(result, right - left + 1)
     }
 
-    return result;
-}
-
-// sliding window (optimal)
-function lengthOfLongestSubstring(s) {
-    let charMap = new Map();
-    let [result, leftPointer] = [0, 0];
-
-    for (let rightPointer = 0; rightPointer < s.length; rightPointer += 1) {
-        let rightChar = s[rightPointer];
-
-        if (charMap.has(rightChar)) leftPointer = Math.max(leftPointer, charMap.get(rightChar) + 1);
-
-        charMap.set(rightChar, rightPointer)
-        result = Math.max(result, rightPointer - leftPointer + 1);
-    }
-
-    return result;
+    return result
 }
 
 

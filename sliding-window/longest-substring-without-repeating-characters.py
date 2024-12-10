@@ -46,7 +46,7 @@ O: integer representing the length of the longest substring without repeating ch
 5. return the count
 
 Time complexity = O(n) where n is the length of the string
-Space complexity = O(m) where m is the total number of unique characters in the string
+Space complexity = O(m) where m is the total number of unique characters in the string (put in the set)
 """
 
 
