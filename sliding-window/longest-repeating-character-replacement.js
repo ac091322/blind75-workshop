@@ -55,8 +55,7 @@ function characterReplacement(s, k) {
     let result = 0;
 
     for (let targetChar of charSet) {
-        let targetCharCount = 0;
-        let leftPointer = 0;
+        let [targetCharCount, leftPointer] = [0, 0];
 
         for (let rightPointer = 0; rightPointer < s.length; rightPointer += 1) {
             if (s[rightPointer] === targetChar) targetCharCount += 1;
