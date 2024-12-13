@@ -86,16 +86,17 @@ def is_valid(s):
 
         else:
             stack.append(char)
-            print(stack)
 
+    # works because we can see it this way: [] == True --> False, not False --> True
+    # the expression is grouped as not ([] == True) rather than (not []) == True because the not operator has lower precedence thanthe == operator
     return True if not stack else False
 
 
-# print(is_valid("()"))  # output: true
-# print(is_valid("("))  # output: false
+print(is_valid("()"))  # output: true
+print(is_valid("("))  # output: false
 print(is_valid("()[]{}"))  # output: true
-# print(is_valid("(]"))  # output: false
-# print(is_valid("([])"))  # output: true
-# print(is_valid("([{}])"))  # output: true
-# print(is_valid("([)]"))  # output: false
-# print(is_valid("(){}}{"))  # output: false
+print(is_valid("(]"))  # output: false
+print(is_valid("([])"))  # output: true
+print(is_valid("([{}])"))  # output: true
+print(is_valid("([)]"))  # output: false
+print(is_valid("(){}}{"))  # output: false

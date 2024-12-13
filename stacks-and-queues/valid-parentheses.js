@@ -89,6 +89,9 @@ function isValid(s) {
     }
 
     // !stack does not work because it converts an empty array [], which is truthy, into a falsey
+    // [] === true --> truthy === true --> false
+    // ![] === true --> false === true --> false
+    // in js the ! operator has precedence over the === operator, so it will first evaluate ![] to false, then compare false === true
     return stack.length === 0 ? true : false;
 }
 
