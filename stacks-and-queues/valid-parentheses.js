@@ -76,7 +76,7 @@ function isValid(s) {
     for (let char of s) {
         if (char in closeToOpen) {
 
-            // better to check the length of the stack instead of just stack to account for empty arrays []
+            // better to check the length of the stack instead of just stack to account for empty arrays [] which are truthy in js
             if (stack.length > 0 && stack[stack.length - 1] === closeToOpen[char]) {
                 stack.pop();
             } else {

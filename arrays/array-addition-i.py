@@ -85,7 +85,7 @@ def array_addition(list_of_nums):
     for r in range(1, len(list_of_nums) + 1, 1):
         # order does not matter, and there are no repetitions of elements
         # r is the size of each combination
-        # combo are in tuples
+        # combinations are in tuples
         for tup_combo in itertools.combinations(list_of_nums, r):
             if sum(tup_combo) == largest_num:
                 return True
