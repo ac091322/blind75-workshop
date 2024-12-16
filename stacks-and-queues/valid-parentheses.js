@@ -92,7 +92,7 @@ function isValid(s) {
     // [] === true --> truthy === true --> false
     // ![] === true --> false === true --> false
     // in js the ! operator has precedence over the === operator, so it will first evaluate ![] to false, then compare false === true
-    return stack.length === 0 ? true : false;
+    return stack.length === 0
 }
 
 
