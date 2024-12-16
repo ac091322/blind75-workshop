@@ -21,19 +21,45 @@ function formMinCoolStrings(s, k){
 }
 """
 
+# compares the char code of the car at index i with one char before it at index i - 1
+# def formMinCoolStrings(s, k):
+#     result = []
+#     curSubstring = s[0]
 
+#     for i in range(1, len(s), 1):
+#         if abs(ord(s[i]) - ord(s[i - 1])) <= k:
+#             curSubstring += s[i]
+#         else:
+#             result.append(curSubstring)
+#             curSubstring = s[i]
+
+#     result.append(curSubstring)
+#     return result
+
+
+# compares the char code of the char at index i with the lowest char code value in the current substring
 def formMinCoolStrings(s, k):
     result = []
-    curSubstring = s[0]
+    curStr = s[0]
+    min_val = ord(s[0])
+    max_val = ord(s[0])
 
     for i in range(1, len(s), 1):
-        if abs(ord(s[i]) - ord(s[i - 1])) <= k:
-            curSubstring += s[i]
-        else:
-            result.append(curSubstring)
-            curSubstring = s[i]
+        cur_char_val = ord(s[i])
+        new_min_val = min(min_val, cur_char_val)
+        new_max_val = max(max_val, cur_char_val)
 
-    result.append(curSubstring)
+        if abs(new_max_val - new_min_val) <= k:
+            curStr += s[i]
+            min_val = new_min_val
+            max_val = new_max_val
+        else:
+            result.append(curStr)
+            curStr = s[i]
+            min_val = cur_char_val
+            max_val = cur_char_val
+
+    result.append(curStr)
     return result
 
 
