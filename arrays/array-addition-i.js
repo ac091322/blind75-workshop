@@ -82,6 +82,27 @@ function arrayAddition(arr) {
     return false;
 }
 
+// brute force O(n^3)
+function arrayAddition(arr) {
+    let largestNum = Math.max(...arr);
+    let indexOfLargestNum = arr.indexOf(largestNum);
+    arr.splice(indexOfLargestNum, 1);
+
+    for (let i = 0; i < arr.length; i += 1) {
+        for (let j = i + 1; j < arr.length; j += 1) {
+            if (arr[i] + arr[j] === largestNum) {
+                return true;
+            } else {
+                for (let k = j + 1; k < arr.length; k += 1) {
+                    if (arr[i] + arr[j] + arr[k] === largestNum) return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
 
 console.log(arrayAddition([5, 7, 16, 1, 2]));  // output: false
 console.log(arrayAddition([3, 5, -1, 8, 12]));  // output: true

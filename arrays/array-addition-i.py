@@ -93,6 +93,27 @@ def array_addition(list_of_nums):
     return False
 
 
+# brute force O(n^3)
+def array_addition(list_of_nums):
+    largest_num = max(list_of_nums)
+    list_of_nums.remove(largest_num)
+
+    for i in range(0, len(list_of_nums), 1):
+        for j in range(i + 1, len(list_of_nums), 1):
+            if list_of_nums[i] + list_of_nums[j] == largest_num:
+                return True
+            else:
+
+                for k in range(j + 1, len(list_of_nums), 1):
+                    if (
+                        list_of_nums[i] + list_of_nums[j] + list_of_nums[k]
+                        == largest_num
+                    ):
+                        return True
+
+    return False
+
+
 print(array_addition([5, 7, 16, 1, 2]))  # output: false
 print(array_addition([3, 5, -1, 8, 12]))  # output: true
 print(array_addition([5, 10, 15, 20]))  # output: true
