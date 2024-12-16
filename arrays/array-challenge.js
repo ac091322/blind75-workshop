@@ -37,4 +37,4 @@ function arrayChallenge(arr) {
 
 console.log(arrayChallenge([1, 2, 3]));  // output: 0
 console.log(arrayChallenge([4, 4, 4, 6, 2]));  // output: 1
-console.log9(arrayChallenge([4, 4, 4, 4, 11, 6, 3, 9, 9]));  // output: 0
+console.log(arrayChallenge([4, 4, 4, 4, 11, 6, 3, 9, 9]));  // output: 0
