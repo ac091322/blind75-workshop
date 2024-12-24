@@ -55,6 +55,8 @@ function two_sum(nums, target) {
     let num = nums[i];
     let complement = target - num;
 
+    // must use "complement in indexes" to check if complement in index
+    // cannot use indexes[complement] because if value is 0, it returns a falsey
     if (complement in indexes) {
       return [indexes[complement], i]
     } else {
