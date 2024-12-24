@@ -68,6 +68,7 @@ const isAnagram = (s, t) => {
   }
 
   const counterSKeys = Object.keys(counterS);
+
   for (let i = 0; i < counterSKeys.length; i += 1) {
     let keys = counterSKeys[i];  // find the keys
     let valuesS = counterS[keys];  // find the values
@@ -80,7 +81,7 @@ const isAnagram = (s, t) => {
 }
 
 
-console.log(isAnagram("racecar", "carrace"));  // output: true
-console.log(isAnagram("test", "testtest"));  // output: false
-console.log(isAnagram("testtast", "testtest"));  // output: false
+// console.log(isAnagram("racecar", "carrace"));  // output: true
+// console.log(isAnagram("test", "testtest"));  // output: false
+// console.log(isAnagram("testtast", "testtest"));  // output: false
 console.log(isAnagram("jar", "jam"));  // output: false
