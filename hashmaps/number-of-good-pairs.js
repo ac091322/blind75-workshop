@@ -48,6 +48,7 @@ function findGoodPairs(array) {
 
   for (let i = 0; i < array.length; i += 1) {
     let num = array[i];
+
     if (num in pairCounter) {
       goodPairs += pairCounter[num];
       pairCounter[num] += 1;

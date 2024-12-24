@@ -77,7 +77,29 @@ function isIsomorphic(s, t) {
   return true
 }
 
+function isIsomorphic(s, t) {
+  if (s.length !== t.length) return false;
 
-console.log(isIsomorphic("egg", "add"));
-console.log(isIsomorphic("foo", "bar"));
-console.log(isIsomorphic("paper", "title"));
+  const mapStoT = new Map();
+  const mapTtoS = new Map();
+
+  for (let i = 0; i < s.length; i += 1) {
+    let charS = s[i]
+    let charT = t[i]
+
+    if (mapStoT.has(charS)) {
+      if (mapStoT.get(charS) !== charT) return false;
+    } else mapStoT.set(charS, charT);
+
+    if (mapTtoS.has(charT)) {
+      if (mapTtoS.get(charT) !== charS) return false;
+    } else mapTtoS.set(charT, charS);
+  }
+
+  return true;
+}
+
+
+console.log(isIsomorphic("egg", "add"));  // output: true
+console.log(isIsomorphic("foo", "bar"));   // output: false
+console.log(isIsomorphic("paper", "title"));  // output: true
