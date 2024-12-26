@@ -1,3 +1,19 @@
+/*
+Input:
+const shapes = [
+  {type: 'SQUARE', edge:[4]},
+  {type: 'TRIANGLE', edge:[3,4]},
+  {type: 'CIRCLE', edge: [1] },
+];
+
+Output:
+calculateArea(shapes)
+  .then(res => console.log(res))
+  .catch(err=>console.log(err))
+// after 2s, the result would be [16,6,3.14]
+*/
+
+
 function calculateArea(shapesObj) {
     return new Promise((resolve, _reject) => {
         let result = [];
@@ -17,7 +33,6 @@ function calculateArea(shapesObj) {
         }, 2_000);
     });
 }
-
 
 calculateArea([
     { type: "SQUARE", edge: [4] },
