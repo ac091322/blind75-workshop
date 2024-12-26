@@ -14,8 +14,8 @@ calculateArea(shapes)
 */
 
 
-function calculateArea(shapesObj) {
-    return new Promise((resolve, _reject) => {
+function calculateAreas(shapesObj) {
+    return new Promise((resolve, reject) => {
         let result = [];
 
         for (let shape of shapesObj) {
@@ -23,8 +23,11 @@ function calculateArea(shapesObj) {
                 result.push(shape.edge[0] ** 2);
             } else if (shape.type === "TRIANGLE") {
                 result.push(shape.edge[0] * shape.edge[1] / 2);
-            } else {
+            } else if (shape.type === "CIRCLE") {
                 result.push(shape.edge[0] * 3.14);
+            } else {
+                reject((new Error(`Invalid shape type: ${shape.type}`)));
+                return;
             }
         }
 
@@ -34,10 +37,11 @@ function calculateArea(shapesObj) {
     });
 }
 
-calculateArea([
+calculateAreas([
     { type: "SQUARE", edge: [4] },
     { type: "TRIANGLE", edge: [3, 4] },
-    { type: "CIRCLE", edge: [1] }
+    { type: "CIRCLE", edge: [1] },
+    // { type: "HEXAGON", "edge": [2] },
 ])
     .then((res) => console.log(res)) // [16, 6, 3.14]
     .catch((err) => console.log(err));
