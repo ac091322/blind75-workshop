@@ -3,11 +3,11 @@ Please implement the following classe:
 - Create a Vehicle class that contains the properties engine and speed.
    - Add a method info(), which logs the engine & speed values.
 - Create a Car class that inherits from the Vehicle class.
-   - Add more properties wheels and brake
+   - Add more properties wheels and brakes.
    - Add a method honk(), which logs “Honk!”.
-   - Add a static method isTesla(car), which takes an argument car object and returns true if its brake property is true, otherwise false.
+   - Add a static method hasBrakes(car), which takes an argument car object and returns true if its brake property is true, otherwise false.
 
-Note: Static methods are invoked by calling it on the class itself, so Car.isTesla().
+Note: Static methods are invoked by calling it on the class itself, so Car.hasBrakes().
 */
 
 
@@ -37,8 +37,8 @@ class CarES6 extends VehicleES6 {
         console.log("Honk!");
     }
 
-    // defines a static method isTesla on the CarES6 class (belongs only to CarES6 class, not its instances)
-    static isTesla(car) {
+    // defines a static method hasBrakes on the CarES6 class (belongs only to CarES6 class, not its instances)
+    static hasBrakes(car) {
         return car.brake ? true : false;
     }
 }
@@ -57,11 +57,11 @@ console.log(myCarES61 instanceof CarES6);  // output: true
 myCarES61.honk();  // output: Honk!
 myCarES61.info();  // output: The engine type for this vehicle is V12 and can go up to 200 miles per hour.
 
-// test static method isTesla()
-console.log(CarES6.isTesla(myCarES61));  // output: false;
-console.log(CarES6.isTesla(myCarES62));  // output: true;
+// test Car class static method hasBrakes()
+console.log(CarES6.hasBrakes(myCarES61));  // output: false;
+console.log(CarES6.hasBrakes(myCarES62));  // output: true;
 
-// test that isTesla() is not an instance method
-// must use the class to access it
-console.log(myCarES61.isTesla);  // output: undefined
-console.log(myCarES62.isTesla);  // output: undefined
+// test that hasBrakes() is not an instance method
+// must use the class to access it --> CarES6.hasBrakes()
+console.log(myCarES61.hasBrakes);  // output: undefined
+console.log(myCarES62.hasBrakes);  // output: undefined
