@@ -64,7 +64,8 @@ def product_of_array(nums):
         suffix[i] = suffix[i + 1] * nums[i + 1]
         # suffix becomes [48, 24, 6, 1]
 
-    # compute result by multiplying prefix and suffix products
+    # prefix got the product of all the numbers before nums[i], suffix got the product of all numbers before nums[i]
+    # when you multiply the two at each index you get the product of everything except the numbrer at that index
     for i in range(0, len(nums), 1):
         result[i] = prefix[i] * suffix[i]
 
