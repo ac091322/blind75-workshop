@@ -67,12 +67,13 @@ const isAnagram = (s, t) => {
     // charT in counterT ? counterT[charT] += 1 : counterT[charT] = 1
   }
 
+  // use the keys from either counterS or counterT
   const counterSKeys = Object.keys(counterS);
 
   for (let i = 0; i < counterSKeys.length; i += 1) {
-    let keys = counterSKeys[i];  // find the keys
-    let valuesS = counterS[keys];  // find the values
-    let valuesT = counterT[keys];  // find the values
+    let keys = counterSKeys[i];  // get the keys
+    let valuesS = counterS[keys];  // get the values in counterS
+    let valuesT = counterT[keys];  // get the values in counterT
     // need to check if they are not equal, otherwise it will return true on the first equal match and not check the rest of the keys
     if (valuesS !== valuesT) return false  // will get undefined if keys are different
   }
