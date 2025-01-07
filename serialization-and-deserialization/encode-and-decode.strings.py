@@ -92,7 +92,7 @@ def decode(s):
         length = int(s[i:j])
         i = j + 1  # move i past the # to the start of the next string
         j = i + length  # get the position after the last character
-        decoded.append(s[i:j])  # slice the string from i to j
+        decoded.append(s[i:j])  # slice the string from i to j (not inclusive)
         i = j  # update i to the new position of j
         # once i is updated, it's now ready to repeat the process for the next encoded string
 

@@ -59,7 +59,8 @@ function maxScore(str) {
     let leftZeroes = 0;
 
     // split the strings on the 1s: "011101" --> [ '0', '', '', '0', '' ]
-    // the number of 1s is always one less than the number of pieces the string split into
+    // the number of 1s is always one less than the number of pieces the string splits into
+    // two consecutive "1"s results in one empty ""
     let rightOnes = str.split("1").length - 1;
 
     // let array = str.split("")
