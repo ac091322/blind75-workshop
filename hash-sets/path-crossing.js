@@ -53,7 +53,7 @@ function pathCrossing(path) {
     let [x, y] = [0, 0]
     let visited = new Set()
 
-    // must add the string version, cannot add [x, y] because in js two arrays with the same values are considered different objects
+    // must add the string version because a set in js can only store one variable, not x and y
     visited.add(`${x}, ${y}`)
 
     for (let char of path) {
