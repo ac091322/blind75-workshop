@@ -59,6 +59,7 @@ def is_anagram(s, t):
     counterS = {}
     counterT = {}
 
+    # for charS, charT in zip(s, t):
     i = 0
     while i < len(s):
         charS = s[i]

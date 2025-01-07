@@ -56,7 +56,6 @@ def two_sum(list_of_nums, target):
         complement = target - num
 
         if complement in indexes:  # check if the complement exists in the dictionary
-            # return the indices of the complement and the current number
             return [indexes[complement], i]
 
         else:
