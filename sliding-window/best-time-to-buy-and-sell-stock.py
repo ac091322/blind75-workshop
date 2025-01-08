@@ -37,7 +37,7 @@ Space complexity: O(1)
 def max_profit(prices) -> int:
     max_profit = 0
 
-    for i in range(0, len(prices), 1):
+    for i in range(0, len(prices) - 1, 1):
         buy_price = prices[i]
 
         for j in range(i + 1, len(prices), 1):
