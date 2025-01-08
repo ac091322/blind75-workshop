@@ -77,7 +77,7 @@ def is_valid(s):
     close_to_open = {")": "(", "]": "[", "}": "{"}
 
     for char in s:
-        if char in close_to_open:
+        if char in close_to_open:  # if char is a key in close_to_open
 
             # fine to do just "if stack" because py evaluates empty lists as falsey
             if stack and stack[-1] == close_to_open[char]:
