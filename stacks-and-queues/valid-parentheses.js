@@ -106,3 +106,4 @@ console.log(isValid("([)]"));  // output: false
 console.log(isValid("(){}}{"));  // output: false
 console.log(isValid("){}("));  // output: false
 console.log(isValid(")({}"));  // output: false
+console.log(isValid("({)}"));  // output: false

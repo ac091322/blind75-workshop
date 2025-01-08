@@ -94,13 +94,14 @@ def is_valid(s):
     return True if not stack else False
 
 
-# print(is_valid("()"))  # output: true
-# print(is_valid("("))  # output: false
-# print(is_valid("()[]{}"))  # output: true
-# print(is_valid("(]"))  # output: false
-# print(is_valid("([])"))  # output: true
-# print(is_valid("([{}])"))  # output: true
-# print(is_valid("([)]"))  # output: false
-# print(is_valid("(){}}{"))  # output: false
+print(is_valid("()"))  # output: true
+print(is_valid("("))  # output: false
+print(is_valid("()[]{}"))  # output: true
+print(is_valid("(]"))  # output: false
+print(is_valid("([])"))  # output: true
+print(is_valid("([{}])"))  # output: true
+print(is_valid("([)]"))  # output: false
+print(is_valid("(){}}{"))  # output: false
 print(is_valid("){}("))  # output: false
 print(is_valid(")({}"))  # output: false
+print(is_valid("({)}"))  # output: false

@@ -51,7 +51,7 @@ function maxProfit(prices) {
 
 // two pointers
 function maxProfit(prices) {
-    let [curDay, laterDay] = [0, 1];
+    let curDay = 0, laterDay = 1;
     let maxProfit = 0;
 
     while (laterDay < prices.length) {
