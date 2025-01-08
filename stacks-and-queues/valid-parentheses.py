@@ -82,6 +82,7 @@ def is_valid(s):
             # fine to do just "if stack" because py evaluates empty lists as falsey
             if stack and stack[-1] == close_to_open[char]:
                 stack.pop()
+            # if closing parentheses encountered before opening, then there is no stack, and hits the else
             else:
                 return False
 
@@ -93,11 +94,13 @@ def is_valid(s):
     return True if not stack else False
 
 
-print(is_valid("()"))  # output: true
-print(is_valid("("))  # output: false
-print(is_valid("()[]{}"))  # output: true
-print(is_valid("(]"))  # output: false
-print(is_valid("([])"))  # output: true
-print(is_valid("([{}])"))  # output: true
-print(is_valid("([)]"))  # output: false
-print(is_valid("(){}}{"))  # output: false
+# print(is_valid("()"))  # output: true
+# print(is_valid("("))  # output: false
+# print(is_valid("()[]{}"))  # output: true
+# print(is_valid("(]"))  # output: false
+# print(is_valid("([])"))  # output: true
+# print(is_valid("([{}])"))  # output: true
+# print(is_valid("([)]"))  # output: false
+# print(is_valid("(){}}{"))  # output: false
+print(is_valid("){}("))  # output: false
+print(is_valid(")({}"))  # output: false
