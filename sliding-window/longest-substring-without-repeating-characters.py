@@ -87,7 +87,7 @@ def length_of_longest_substring(s) -> int:
             left_pointer = max(left_pointer, char_map[right_char] + 1)
 
         # store the index of the current character (right_char) in the hashmap so that the value of the right character corresponds to its most recent position (right_pointer)
-        # will always update the value in the char map with the latest index of the right pointer
+        # will always update the same, repeated value in the char map with the latest index of the right pointer
         char_map[right_char] = right_pointer
         result = max(result, right_pointer - left_pointer + 1)
 
