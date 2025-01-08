@@ -79,7 +79,7 @@ def is_valid(s):
     for char in s:
         if char in close_to_open:
 
-            # fine to do just if stack because py evaluates empty lists as falsey
+            # fine to do just "if stack" because py evaluates empty lists as falsey
             if stack and stack[-1] == close_to_open[char]:
                 stack.pop()
             else:
