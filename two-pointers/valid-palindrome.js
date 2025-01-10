@@ -75,6 +75,17 @@ function isAlphaNumeric(char) {
 }
 
 
+function isPalindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+
+  for (let i = 0; i < Math.floor(s.length / 2); i += 1) {
+    if (s[i] !== s[s.length - 1 - i]) return false;
+  }
+
+  return true;
+}
+
+
 console.log(isPalindrome("A man, a plan, a canal: Panama"))  // output: true
 console.log(isPalindrome("race a car"))  // output: false
 console.log(isPalindrome(" "))  // output: true

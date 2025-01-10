@@ -82,8 +82,26 @@ def is_palindrome(s):
     return filtered_s == filtered_s[::-1]
 
 
-solution = Solution()
-print(solution.is_palindrome("A man, a plan, a canal: Panama"))  # output: True
-print(solution.is_palindrome("race a car"))  # output: False
-print(solution.is_palindrome(" "))  # output: True
-print(solution.is_palindrome("0P"))  # output: False
+import re
+import math
+
+
+def is_palindrome(s):
+    s = re.sub(r"[^a-zA-Z0-9]", "", s).lower()
+
+    for i in range(0, math.floor(len(s) / 2), 1):
+        if s[i] != s[len(s) - 1 - i]:
+            return False
+
+    return True
+
+
+# solution = Solution()
+# print(solution.is_palindrome("A man, a plan, a canal: Panama"))  # output: True
+# print(solution.is_palindrome("race a car"))  # output: False
+# print(solution.is_palindrome(" "))  # output: True
+# print(solution.is_palindrome("0P"))  # output: False
+print(is_palindrome("A man, a plan, a canal: Panama"))  # output: True
+print(is_palindrome("race a car"))  # output: False
+print(is_palindrome(" "))  # output: True
+print(is_palindrome("0P"))  # output: False
