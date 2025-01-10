@@ -110,7 +110,7 @@ def character_replacement(s: str, k: int) -> int:
 
 
 """
-In the test case "AABABBA" on the 5th iteration when left is at 0 and right is at 4, it will go into the while loop, and shrink the window size from 4-0+1 (length 5) to 4-1+1 (length 4). However, the max char frequency will remain at 3 (from the previous 3 "A"s found). So in this case, the new segment when left is at 1 and right is still at 4 will be "ABAB", but this will pass the window validity and break out of the while loop even though it should not. "ABAB" has a length of 4, but the max char frequency is 3, so 4-3=1, and 1 is not > 1, so this breaks out of the while loop, but it is not valid because "ABAB" needs to replace two characters to be a valid length of 4, but k=1, not 2.
+In the test case "AABABBA" on the 5th iteration when left is at 0 and right is at 4, it will go into the while loop, and shrink the window size from 4-0+1 (length 5) to 4-1+1 (length 4). However, the max char frequency will remain at 3 (from the previous 3 "A"s found). So in this case, the new segment when left is at 1 and right is still at 4 will be "ABAB", but this will pass the window validity and break out of the while loop even though it should not. "ABAB" has a length of 4, but the max char frequency is 3, so 4-3=1, and 1 is not > 1, so this breaks out of the while loop, but it is not valid because "ABAB" needs to replace two characters to be a valid length of 4, but k=1, not 2. This still works because the first valid length of 4 is enough, the second invalid length of 4 breaks out of the while loop, but will not increase the max char frequency, and thus will not effect the result.
 """
 
 print(character_replacement("ABAB", 2))  # output: 4
