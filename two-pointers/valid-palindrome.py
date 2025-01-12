@@ -96,6 +96,16 @@ def is_palindrome(s):
     return True
 
 
+def is_palindrome(s):
+    s = "".join(char.lower() for char in s if char.isalnum())
+
+    for i in range(0, math.floor(len(s) / 2), 1):
+        if s[i] != s[len(s) - 1 - i]:
+            return False
+
+    return True
+
+
 # solution = Solution()
 # print(solution.is_palindrome("A man, a plan, a canal: Panama"))  # output: True
 # print(solution.is_palindrome("race a car"))  # output: False
