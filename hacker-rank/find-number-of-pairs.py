@@ -38,8 +38,7 @@ def find_num_of_pairs(a, b):
     a.sort()
     b.sort()
 
-    i = j = 0
-    count = 0
+    i = j = count = 0
 
     while i < len(a) and j < len(b):
         if a[i] > b[j]:

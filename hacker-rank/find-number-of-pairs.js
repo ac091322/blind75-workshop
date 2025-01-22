@@ -38,8 +38,7 @@ function findNumOfPairs(a, b) {
     a.sort((a, b) => (a - b));
     b.sort((a, b) => (a - b));
 
-    let i = 0; j = 0;
-    let count = 0;
+    let i = 0; j = 0, count = 0;
 
     while (i < a.length && j < b.length) {
         // if valid pair found, move both pairs up beacuse each element can only be in one pair
