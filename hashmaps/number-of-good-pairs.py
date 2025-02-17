@@ -55,9 +55,11 @@ def find_good_pairs(lst):
         else:
             pair_counter[num] = 1
 
+    print(pair_counter)
     return good_pairs
 
 
 print(find_good_pairs([1, 2, 3, 1, 1, 3]))  # output: 4
+print(find_good_pairs([1, 2, 3, 1, 1, 3, 1]))  # output: 7
 print(find_good_pairs([1, 2, 3]))  # output: 0
 print(find_good_pairs([1, 1, 1, 1]))  # output: 6

@@ -62,5 +62,6 @@ function findGoodPairs(array) {
 
 
 console.log(findGoodPairs([1, 2, 3, 1, 1, 3]));  // output: 4
+console.log(findGoodPairs([1, 2, 3, 1, 1, 3, 1]));  // output: 7
 console.log(findGoodPairs([1, 2, 3]));  // output: 0
 console.log(findGoodPairs([1, 1, 1, 1]));  // output: 6
