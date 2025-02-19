@@ -81,6 +81,7 @@ def length_of_longest_substring(s) -> int:
     for right_pointer in range(0, len(s), 1):
         right_char = s[right_pointer]
 
+
         if right_char in char_map:
             # if a duplicate is found, update the left pointer to the right of the last occurence of the right character + 1
             left_pointer = max(left_pointer, char_map[right_char] + 1)
