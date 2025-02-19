@@ -94,20 +94,28 @@ def character_replacement(s: str, k: int) -> int:
     for right_pointer in range(0, len(s), 1):
         right_char = s[right_pointer]
         char_counter[right_char] = char_counter.get(right_char, 0) + 1
-        max_char_freq = max(max_char_freq, char_counter[right_char])
+        max_char_freq = max(
+            max_char_freq, char_counter[right_char]
+        )  # max_char_freq will never go down
 
         # subtract the max frequency of any character count from the window size to get the number of non-target characters (the characters that are not the most frequent)
         while (right_pointer - left_pointer + 1) - max_char_freq > k:
             left_char = s[left_pointer]
             # still need to decrease the count of the character in case another target character is found, which will increase the count by 1 again (decreasing the count is not used for breaking out of the while loop)
             # it doesn't matter if the character at the left pointer is the target character, it is the character that is existing the window, so it must be decreased
-            char_counter[left_char] -= 1  # left char will always be in counter because of the right pointer (no need to use the .get() method)
+            char_counter[
+                left_char
+            ] -= 1  # left char will always be in counter because of the right pointer (no need to use the .get() method)
             left_pointer += 1
 
         result = max(result, right_pointer - left_pointer + 1)
 
     return result
 
+
+"""
+In the test case "AABABBA" on the 5th iteration when left is at 0 and right is at 4, it will go into the while loop, and shrink the window size from 4-0+1 (length 5) to 4-1+1 (length 4). However, the max char frequency will remain at 3 (from the previous 3 "A"s found). So in this case, the new segment when left is at 1 and right is still at 4 will be "ABAB", but this will pass the window validity and break out of the while loop even though it should not. "ABAB" has a length of 4, but the max char frequency is 3, so 4-3=1, and 1 is not > 1, so this breaks out of the while loop, but it is not valid because "ABAB" needs to replace two characters to be a valid length of 4, but k=1, not 2. This still works because the first valid length of 4 is enough, the second invalid length of 4 breaks out of the while loop, but will not increase the max char frequency, and thus will not effect the result.
+"""
 
 print(character_replacement("ABAB", 2))  # output: 4
 print(character_replacement("AABABBA", 1))  # output: 4
