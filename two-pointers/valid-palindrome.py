@@ -83,7 +83,6 @@ def is_palindrome(s):
 
 
 import re
-import math
 
 
 def is_palindrome(s):
@@ -96,11 +95,19 @@ def is_palindrome(s):
     return True
 
 
+import math
+
+
 def is_palindrome(s):
     s = "".join(char.lower() for char in s if char.isalnum())
+    # print(s)
+    # print(len(s))
 
     for i in range(0, math.floor(len(s) / 2), 1):
-        if s[i] != s[len(s) - 1 - i]:
+        # print(s[i])
+        if (
+            s[i] != s[len(s) - 1 - i]
+        ):  # this works because it's always comparing the first index with the last index
             return False
 
     return True
