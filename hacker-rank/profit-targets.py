@@ -21,9 +21,9 @@ Returns:
 int: the total number of pairs determined
 
 Constraints
-- 1 ≤ n ≤ 5 × 10^5
+- 1 ≤ n ≤ 5 * 10^5
 - 0 ≤ stocksProfit[i] ≤ 10^9
-- 0 ≤ target ≤ 5 × 10^9
+- 0 ≤ target ≤ 5 * 10^9
 
 Input Format for Custom Testing
 Input from stdin will be processed as follows and passed to the function.
