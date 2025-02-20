@@ -66,7 +66,19 @@ The first 2 pairs are the same, as are the last 4. There are only 2 distinct pai
 
 
 def stockPairs(stocksProfit, target):
-    pass
+    complement_counter = {}
+    unique_pairs = set()
+
+    for num in stocksProfit:
+        complement = target - num
+
+        if complement in complement_counter:
+            pair = (min(num, complement), max(num, complement))
+            unique_pairs.add(pair)  # tuples can be added to sets because they are immutable
+        else:
+            complement_counter[num] = True
+
+    return len(unique_pairs)
 
 
 print(stockPairs([1, 3, 46, 1, 3, 9], 47))  # output: 1
