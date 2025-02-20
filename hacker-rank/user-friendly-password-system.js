@@ -13,7 +13,7 @@ h(s) = (f('c') * 131^3 + f('A') * 131^2 + f('r') * 131 + f('1')) mod 10^9+7 = 22
 
 Your system will be tested on q event types, each of which will be one of the following:
 1. setPassword(s) := sets the password to s
-2. authorize(x) := tries to sign in with integer x. This event must return 1 if x is either the hash of the current password or the hash of the current password with a single character appended to it. Otherwise, this event must return 0.
+2. authorize(x): = tries to sign in with integer x. This event must return 1 if x is either the hash of the current password or the hash of the current password with a single character appended to it. Otherwise, this event must return 0.
 
 Consider the following example. There are 6 events to be handled:
 1. setPassword("cAr1")
