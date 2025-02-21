@@ -63,29 +63,28 @@ The maximum such value is 2, and it is achieved, for example, by the array [1, 1
 
 
 function maxElement(n, maxSum, k) {
-    let left = k;  // Elements to the left of index k
-    let right = n - k - 1; // Elements to the right of index k
+    let left = k;  // elements to the left of index k
+    let right = n - k - 1;  // elements to the right of index k
     let low = 1, high = maxSum, best = 1;
 
     while (low <= high) {
         let mid = Math.floor((low + high) / 2);
 
-        // Calculate the sum of the array if peak is 'mid'
+        // calculate the sum of the array if peak is "mid"
         let sum = mid;
 
-        // Sum of left side elements forming a decreasing sequence
+        // sum of left side elements forming a decreasing sequence
         let leftSum = (mid - 1 >= left) ? (mid - 1) * left - (left * (left - 1)) / 2 : (mid * (mid - 1)) / 2;
-
-        // Sum of right side elements forming a decreasing sequence
+        // sum of right side elements forming a decreasing sequence
         let rightSum = (mid - 1 >= right) ? (mid - 1) * right - (right * (right - 1)) / 2 : (mid * (mid - 1)) / 2;
 
         sum += leftSum + rightSum;
 
         if (sum <= maxSum) {
-            best = mid; // Try increasing
+            best = mid;  // try increasing
             low = mid + 1;
         } else {
-            high = mid - 1; // Reduce the peak value
+            high = mid - 1;  // reduce the peak value
         }
     }
 

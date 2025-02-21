@@ -89,8 +89,8 @@ There are 5 events to process:
 
 
 function authEvents(events) {
-    const p = 131;
-    const M = 1e9 + 7;
+    const p = 131;  // prime number used as the base for the hashing function
+    const M = 1e9 + 7;  // the modulo value used in the hash calculation
 
     let currentPassword = "";
     let passwordHash = 0;
@@ -99,7 +99,7 @@ function authEvents(events) {
 
     function computeHash(s) {
         let hashValue = 0;
-        let power = 1; // Tracks p^(n-1), starting from rightmost character
+        let power = 1;  // tracks p^(n-1), starting from rightmost character
         for (let i = s.length - 1; i >= 0; i--) {
             hashValue = (hashValue + s.charCodeAt(i) * power) % M;
             power = (power * p) % M;
