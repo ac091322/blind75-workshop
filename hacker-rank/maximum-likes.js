@@ -42,17 +42,18 @@ Choose trends 1 and 3. You will get 0 likes on first day, 1 like on second day, 
 
 
 function maximumLikes(prediction) {
-    const MOD = 1e9 + 7;
+    const modulo = 1e9 + 7;  // scientific notation for 10^9 + 7
 
-    // Step 1: Count occurrences of each trend
+    // count occurrences of each trend
     let maxVal = Math.max(...prediction);
-    let count = new Array(maxVal + 1).fill(0);
+    let count = new Array(maxVal + 1).fill(0);  // accounts for starting at 0
+
 
     for (let num of prediction) {
-        count[num] += num;  // Each occurrence contributes num likes
+        count[num] += num;  // each occurrence contributes num likes
     }
 
-    // Step 2: Dynamic Programming (House Robber Pattern)
+    // dynamic Programming (House Robber pattern)
     let prev = 0, curr = 0;
 
     for (let i = 0; i <= maxVal; i += 1) {
@@ -61,11 +62,13 @@ function maximumLikes(prediction) {
         curr = newCurr;
     }
 
-    return curr % MOD;
+    return curr % modulo;
+    // in the test case [1, 3], it is taking 4 % 1000000007, which is 4 / 1000000007 = 0 remainder 4
+    // for any dividend smaller than 1000000007, it will always return the dividend as the remainder
 }
 
 
-console.log(maximumLikes([1, 3]));  // output: 4
+// console.log(maximumLikes([1, 3]));  // output: 4
 console.log(maximumLikes([1, 1, 1, 10, 10, 11, 11, 12, 12]));  // output: 47
-console.log(maximumLikes([1, 1, 1, 2, 2, 2, 3, 3, 3]));  // output: 6
-console.log(maximumLikes([2, 2, 3, 3, 4, 4, 10, 100, 1000]));  // output: 1122
+// console.log(maximumLikes([1, 1, 1, 2, 2, 2, 3, 3, 3]));  // output: 6
+// console.log(maximumLikes([2, 2, 3, 3, 4, 4, 10, 100, 1000]));  // output: 1122

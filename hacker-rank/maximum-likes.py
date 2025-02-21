@@ -42,7 +42,23 @@ Choose trends 1 and 3. You will get 0 likes on first day, 1 like on second day, 
 
 
 def maximumLikes(prediction):
-    pass
+    modulo = 1e9 + 7
+
+    max_val = max(prediction)
+    count = [0 for _ in range(max_val + 1)]
+
+
+    for num in prediction:
+        count[num] += num
+
+    prev, curr = 0, 0
+
+    for i in range(0, max_val + 1, 1):
+        new_curr = max(curr, prev + count[i])
+        prev = curr
+        curr = new_curr
+
+    return int(curr % modulo)
 
 
 print(maximumLikes([1, 3]))  # output: 4
