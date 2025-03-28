@@ -66,7 +66,7 @@ def is_valid(s):
         s = s.replace("{}", "")
         s = s.replace("[]", "")
 
-    return s == ""
+    return True if not s else False
 
 
 # stack
