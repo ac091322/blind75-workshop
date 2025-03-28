@@ -102,7 +102,7 @@ def character_replacement(s: str, k: int) -> int:
         while (right_pointer - left_pointer + 1) - max_char_freq > k:
             left_char = s[left_pointer]
             # still need to decrease the count of the character in case another target character is found, which will increase the count by 1 again (decreasing the count is not used for breaking out of the while loop)
-            # it doesn't matter if the character at the left pointer is the target character, it is the character that is existing the window, so it must be decreased
+            # it doesn't matter if the character at the left pointer is the target character, it is the character that is exiting the window, so it must be decreased
             char_counter[
                 left_char
             ] -= 1  # left char will always be in counter because of the right pointer (no need to use the .get() method)
