@@ -64,7 +64,6 @@ function isPalindrome(s) {
 
   let reversedArr = [...filteredArr].reverse();
   return filteredArr.join("") === reversedArr.join("");
-
 }
 
 
