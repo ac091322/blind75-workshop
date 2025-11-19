@@ -7,7 +7,7 @@ s[i] == 'I' if perm[i] < perm[i + 1], and
 s[i] == 'D' if perm[i] > perm[i + 1].
 Given a string s, reconstruct the permutation perm and return it. If there are multiple valid permutations perm, return any of them.
 
- Example 1:
+Example 1:
 Input: s = "IDID"
 Output: [0,4,1,3,2]
 
